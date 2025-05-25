@@ -1,7 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import './GlowingButton.css';
 
-const GlowingButton = ({ children }) => {
+const GlowingButton = ({ 
+  children, 
+  borderRadius = 0, 
+  primaryColor = '#294932', // Border/glow color
+  secondaryColor = 'var(--color-accent-yellow)', // Between-border-button color
+  buttonColor = 'var(--color-primary-green)' // Button fill color
+}) => {
   const wrapperRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -72,11 +78,37 @@ const GlowingButton = ({ children }) => {
     };
   }, []);
 
+  // Convert primaryColor to RGB for the gradient
+  const getRgbValues = (hex) => {
+    // Remove # if present
+    hex = hex.replace('#', '');
+    
+    // Convert 3-digit hex to 6-digit
+    if (hex.length === 3) {
+      hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+    
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    return `${r}, ${g}, ${b}`;
+  };
+
+  // Prepare CSS variables
+  const cssVars = {
+    '--border-radius': typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius,
+    '--primary-color': primaryColor,
+    '--primary-color-rgb': getRgbValues(primaryColor),
+    '--secondary-color': secondaryColor,
+    '--button-color': buttonColor
+  };
+
   return (
     <div
       className="glow-button-wrapper"
       ref={wrapperRef}
-      style={{ backgroundColor: 'transparent' }}
+      style={{ ...cssVars, backgroundColor: 'transparent' }}
     >
       <div className="glow-gap-filler">
         <button ref={buttonRef}>{children}</button>

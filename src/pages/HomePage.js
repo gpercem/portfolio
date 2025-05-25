@@ -2,10 +2,11 @@ import React from 'react';
 import './PageStyles.css'; // Common styles for pages
 import '../App.css'; // Ensure App.css is imported for glowing button styles
 import GlowingButton from '../components/GlowingButton';
+import WorksButton from '../components/WorksButton';
 
 const HomePage = () => {
   return (
-    <> {/* Use Fragment as hero-section will be full-width and doesn't need a .page-container wrapper */}
+    <>
       <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">Welcome</h1>
@@ -25,6 +26,13 @@ const HomePage = () => {
         <div className="column column-narrower">
 
         </div>
+      </section>
+
+      <section className="about-buttons-section">
+        <WorksButton type="design_button">MY DESIGNS</WorksButton>
+        <WorksButton type="image">MY GAMES</WorksButton>
+        <WorksButton>MY PROJECTS</WorksButton>
+        <WorksButton>MY APPS</WorksButton>
       </section>
     </>
   );

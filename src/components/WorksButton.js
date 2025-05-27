@@ -27,6 +27,7 @@ const WorksButton = ({ children, onClick, type = 'text' }) => {
 
   return (
     <div className={`works-button-wrapper ${type === 'image' ? 'image-type-wrapper' : ''}`}>
+      <div className="works-button-outline"></div> {/* Added outline element */}
       {type === 'image' ? (
         <div
           className="works-button-image-inner" // Moved from img to this div

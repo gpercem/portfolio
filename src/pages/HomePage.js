@@ -29,7 +29,7 @@ const HomePage = () => {
       </section>
 
       <section className="about-buttons-section">
-        <WorksButton type="design_button">MY DESIGNS</WorksButton>
+        <WorksButton type="design">MY DESIGNS</WorksButton>
         <WorksButton type="image">MY GAMES</WorksButton>
         <WorksButton>MY PROJECTS</WorksButton>
         <WorksButton>MY APPS</WorksButton>

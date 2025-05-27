@@ -9,28 +9,18 @@
   display: flex; /* Make it a flex container for its child */
 }
 
-.works-button-wrapper::before {
-  content: '';
+/* New styles for the outline element */
+.works-button-outline {
   position: absolute;
   top: -6px;
   left: -6px;
   right: -6px;
   bottom: -6px;
   border: 2px solid var(--color-primary-green);
-  transition: all 0.1s ease; /* Keep transition for potential border changes */
+  transition: all 0.1s ease;
   pointer-events: none;
-  z-index: 0;
+  z-index: 0; /* Behind the button content */
 }
-
-/* Hide the ::before pseudo-element (the border) for image type wrappers */
-/* .works-button-wrapper.image-type-wrapper::before { */
-/*   display: none; */
-/* } */ /* Removed this rule */
-
-/* Remove margin for image type wrappers if it was specifically for the border */
-/* .works-button-wrapper.image-type-wrapper { */
-/*   margin: 0; */
-/* } */ /* Removed this rule */
 
 .works-button-inner {
   position: relative;
@@ -46,7 +36,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   outline: none;
-  z-index: 1;
+  z-index: 1; /* Above the outline */
   overflow: hidden;
   box-sizing: border-box; /* Padding and border included in width/height */
   display: flex; /* For centering content */
@@ -83,7 +73,7 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   outline: none;
-  z-index: 1;
+  z-index: 1; /* Above the outline */
   overflow: hidden;
   box-sizing: content-box; /* Ensure consistency */
 }

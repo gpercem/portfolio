@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--color-accent-yellow);
+}
+
+
 body {
   font-family: "Source Serif 4", serif;
   font-weight: 300;

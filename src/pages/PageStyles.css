@@ -28,6 +28,7 @@ p {
   margin-bottom: 30px;
 }
 
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -114,8 +115,16 @@ p {
 /* Wide Column (Yellow Background) */
 .column-wider {
   flex: 2;
+}
+
+.column-yellow {
   background-color: var(--color-accent-yellow);
   color: var(--color-primary-green);
+}
+
+.column-green {
+  background-color: var(--color-primary-green);
+  color: var(--color-primary-cream);
 }
 
 .column-wider ul li a:hover {
@@ -126,8 +135,6 @@ p {
 /* Narrow Column (Green Background) */
 .column-narrower {
   flex: 1;
-  background-color: var(--color-primary-green);
-  color: var(--color-primary-cream);
 }
 
 .column-narrower::before {
@@ -183,3 +190,21 @@ p {
   
 }
 
+.social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-top: 16px;
+}
+
+.social p {
+  margin: 0;
+}
+
+
+/* Social hover color transition */
+.social:hover {
+  color: var(--color-accent-yellow);
+  transition: color 0.2s ease;
+}

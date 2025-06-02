@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import './PageStyles.css';
 import AboutButtonsSection from '../components/AboutButtonsSection';
 import PageTransition from '../components/PageTransition';
+import ItchIoEmbed from '../components/ItchIoEmbed';
 
 const MyWorksPage = () => {
   return (
@@ -15,8 +16,20 @@ const MyWorksPage = () => {
       >
         <AboutButtonsSection />
         {/* Add more content specific to My Works page */}
+        <ItchIoEmbed 
+          gameId="1121814"
+          width={206}
+          height={165}
+          borderWidth={0}
+          bgColor="FFF8F0"
+          fgColor="FFF8F0"
+          linkColor="294932"
+          borderColor="000000"
+          gameUrl="https://eneskp3441.itch.io/imlec"
+          gameTitle="İmleç by Enes Kaplan, vcagrokrome, Gökhan Perçem"
+        />
       </motion.div>
-<iframe frameborder="0" src="https://itch.io/embed/1121814?border_width=0" width="206" height="165"><a href="https://eneskp3441.itch.io/imlec">İmleç by Enes Kaplan, vcagrokrome, Gökhan Perçem</a></iframe>    </PageTransition>
+    </PageTransition>
   );
 };
 

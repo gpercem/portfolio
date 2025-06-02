@@ -33,7 +33,7 @@ const Header = () => {
           ) : (
             <>
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/my-works" className="nav-link">My Works</Link>
+              <Link to="/works" className="nav-link">My Works</Link>
             </>
           )}
         </div>
@@ -47,7 +47,7 @@ const Header = () => {
             </button>
           ) : (
             <>
-              <Link to="/about-me" className="nav-link">About Me</Link>
+              <Link to="/about" className="nav-link">About Me</Link>
               <Link to="/contact" className="nav-link">Contact</Link>
             </>
           )}
@@ -56,8 +56,8 @@ const Header = () => {
       {isMobileView && isMobileMenuOpen && (
         <div className="mobile-menu">
           <Link to="/" className="mobile-nav-link" onClick={toggleMobileMenu}>Home</Link>
-          <Link to="/my-works" className="mobile-nav-link" onClick={toggleMobileMenu}>My Works</Link>
-          <Link to="/about-me" className="mobile-nav-link" onClick={toggleMobileMenu}>About Me</Link>
+          <Link to="/works" className="mobile-nav-link" onClick={toggleMobileMenu}>My Works</Link>
+          <Link to="/about" className="mobile-nav-link" onClick={toggleMobileMenu}>About Me</Link>
           <Link to="/contact" className="mobile-nav-link" onClick={toggleMobileMenu}>Contact</Link>
         </div>
       )}

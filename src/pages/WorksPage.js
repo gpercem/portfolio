@@ -5,7 +5,7 @@ import AboutButtonsSection from '../components/AboutButtonsSection';
 import PageTransition from '../components/PageTransition';
 import ItchIoEmbed from '../components/ItchIoEmbed';
 
-const MyWorksPage = () => {
+const WorksPage = () => {
   return (
     <PageTransition>
       <motion.div 
@@ -33,4 +33,4 @@ const MyWorksPage = () => {
   );
 };
 
-export default MyWorksPage;
+export default WorksPage;

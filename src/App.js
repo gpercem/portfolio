@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router';
+import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import MyWorksPage from './pages/MyWorksPage';
@@ -7,18 +8,29 @@ import AboutMePage from './pages/AboutMePage';
 import ContactPage from './pages/ContactPage';
 import './App.css';
 
+// AnimatePresence requires a location from useLocation
+function AnimatedRoutes() {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/my-works" element={<MyWorksPage />} />
+        <Route path="/about-me" element={<AboutMePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
         <main className="page-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/my-works" element={<MyWorksPage />} />
-            <Route path="/about-me" element={<AboutMePage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
+          <AnimatedRoutes />
         </main>
       </div>
     </Router>

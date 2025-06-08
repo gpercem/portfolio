@@ -27,7 +27,7 @@
   width: 100%; /* Fill wrapper width */
   height: 100%; /* Fill wrapper height */
   background-color: var(--color-primary-green);
-  color: var(--color-primary-cream);
+  color: white;
   padding: 8px 12px;
   border: 2px solid var(--color-primary-green);
   font-family: "Source Serif 4", serif;

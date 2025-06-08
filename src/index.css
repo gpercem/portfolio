@@ -1,5 +1,5 @@
 :root {
-  --color-primary-cream: #FFF8F0;
+  --color-primary-cream: #f8e7d4;
   --color-primary-green: #294932;
   --color-accent-yellow: #e4c464;
 }
@@ -18,10 +18,26 @@
 body {
   font-family: "Source Serif 4", serif;
   font-weight: 300;
-  background-color: var(--color-primary-cream);
+  background-image: url('assets/images/bg.webp');
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--color-primary-green);
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-cream);
+  opacity: 0.62;
+  z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {

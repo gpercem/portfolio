@@ -8,7 +8,6 @@ import AboutMePage from './pages/AboutMePage';
 import ContactPage from './pages/ContactPage';
 import './App.css';
 
-// AnimatePresence requires a location from useLocation
 function AnimatedRoutes() {
   const location = useLocation();
   
@@ -16,7 +15,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/works" element={<WorksPage />} />
+        <Route path="/works/*" element={<WorksPage />} />
         <Route path="/about" element={<AboutMePage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

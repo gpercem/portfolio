@@ -3,13 +3,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px;
-  background-color: var(--color-primary-cream);
+  position: relative;
 }
 
 /* Page content - supports animations */
 .page-content {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
+  scrollbar-width: 0;
 }
 
 /* Button */

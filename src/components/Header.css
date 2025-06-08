@@ -1,6 +1,5 @@
 /* Header */
 .site-header {
-  background-color: var(--color-primary-cream);
   margin-bottom: 20px;
 }
 
@@ -87,11 +86,9 @@
   font-size: 1.2rem;
   width: 100%;
   text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mobile-nav-link:hover {
-  background-color: var(--color-primary-green);
   color: var(--color-primary-cream);
 }
 

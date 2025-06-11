@@ -1,0 +1,23 @@
+.page {
+  padding: 40px 0;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+  position: relative;
+}
+
+.contact-content {
+  padding: 40px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.contact-content h1 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.contact-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

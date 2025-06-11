@@ -1,0 +1,169 @@
+.navigation {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 12px 12px;
+  width: calc(100% - 40px);
+  max-width: 800px;
+  border-radius: 128px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  position: relative;
+}
+
+.nav-bubble {
+  position: absolute;
+  background: var(--bg-secondary);
+  border-radius: 128px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+  height: 40px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 128px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link:hover {
+  color: var(--text-accent);
+}
+
+.nav-link.active {
+  color: var(--text-accent);
+}
+
+.nav-icon {
+  font-size: 18px;
+}
+
+.nav-text {
+  text-align: center;
+}
+
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 128px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 18px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-card);
+}
+
+/* Tablet Navigation */
+@media (max-width: 1024px) {
+  .nav-container {
+    gap: 20px;
+  }
+  
+  .nav-menu {
+    gap: 20px;
+  }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    bottom: 20px;
+    top: auto;
+    left: 20px;
+    right: 20px;
+    transform: none;
+    width: calc(100% - 40px);
+    padding: 16px;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .nav-menu {
+    gap: 16px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-bubble {
+    height: 48px;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+  }
+
+  .nav-link {
+    padding: 12px;
+    justify-content: center;
+  }
+
+  .theme-toggle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    padding: 12px;
+  }
+
+  .nav-menu {
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .theme-toggle {
+    padding: 8px 12px;
+    font-size: 18px;
+  }
+}

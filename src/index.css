@@ -1,55 +1,69 @@
-:root {
-  --color-primary-cream: #f8e7d4;
-  --color-primary-green: #294932;
-  --color-accent-yellow: #e4c464;
-}
-
-*,
-*::before,
-*::after {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-::selection {
-  background-color: var(--color-accent-yellow);
+:root {
+  /* Light mode */
+  --bg-primary: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --bg-secondary: rgba(255, 255, 255, 0.3);
+  --bg-card: rgba(255, 255, 255, 0.25);
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-accent: #495057;
+  --border: rgba(255, 255, 255, 0.3);
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
+[data-theme="dark"] {
+  /* Dark mode */
+  --bg-primary: 
+    radial-gradient(circle at 20% 80%, #80002070 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, #1e3b8a96 0%, transparent 50%),
+    linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  --bg-secondary: rgba(0, 0, 0, 0.4);
+  --bg-card: rgba(0, 0, 0, 0.3);
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-accent: #dee2e6;
+  --border: rgba(255, 255, 255, 0.15);
+  --shadow: rgba(0, 0, 0, 0.4);
+}
 
 body {
-  font-family: "Source Serif 4", serif;
-  font-weight: 300;
-  background-image: url('assets/images/bg.webp');
-  background-size: auto;
-  background-position: center;
-  background-attachment: fixed;
-  color: var(--color-primary-green);
-  margin: 0;
-  padding: 0;
-  position: relative;
+  font-family: 'Ambit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--shadow);
+  opacity: 0.86;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
-  height: 100%;
-  background-color: var(--color-primary-cream);
-  opacity: 0.62;
-  z-index: -1;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1;
-  margin: 0;
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-a, a:visited, a:hover, a:active {
-  color: inherit;
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
 }

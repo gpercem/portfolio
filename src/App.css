@@ -1,58 +1,35 @@
-.App {
-  min-height: 100vh;
-  max-width: 1200px;
+#root {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 32px;
-  position: relative;
+  padding: 0  2rem;
+  text-align: center;
 }
 
-/* Page content - supports animations */
-.page-content {
+.app {
+  min-height: 100vh;
+  padding-bottom: 80px;
   position: relative;
+  overflow-x: hidden;
+}
+
+.main-content {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
-  scrollbar-width: 0;
 }
 
-/* Button */
-
-.btn {
-  position: relative;
-  padding: 12px 24px;
-  background-color: var(--color-primary-cream);
-  border: 2px solid #333;
-  color: #333;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
+@media (max-width: 768px) {
+  .app {
+    padding-bottom: 100px;
+  }
+  
+  .main-content {
+    padding-top: 20px;
+    min-height: calc(100vh - 120px);
+  }
 }
-
-.btn-striped {
-  position: relative;
-}
-
-.btn-striped::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  border: 2px solid #333;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.btn-striped:hover::before {
-  box-shadow: 0 0 20px rgba(51, 51, 51, 0.3);
-}
-
-.btn-striped:hover {
-  background-color: #f5f5f5;
-  transform: translateY(-1px);
-}
-
-.btn-striped:active {
-  transform: translateY(0);
-}
-

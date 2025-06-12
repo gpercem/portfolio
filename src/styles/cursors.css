@@ -1,0 +1,51 @@
+/* Custom cursor definitions */
+:root {
+  /* Default cursor (normal) */
+  --cursor-default: url('/cursors/arrow.cur'), auto;
+  
+  /* Pointer cursor (for links and buttons) */
+  --cursor-pointer: url('/cursors/hand.cur'), pointer;
+  
+  /* Text cursor (for text inputs) */
+  --cursor-text: url('/cursors/ibeam.cur'), text;
+  
+}
+
+/* Apply default cursor to body */
+body {
+  cursor: var(--cursor-default);
+}
+
+/* Apply pointer cursor to interactive elements */
+a, 
+button, 
+input[type="submit"], 
+input[type="button"], 
+input[type="reset"],
+select,
+.clickable {
+  cursor: var(--cursor-pointer);
+}
+
+/* Apply text cursor to text inputs */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  cursor: var(--cursor-text);
+}
+
+/* Apply wait cursor */
+.loading {
+  cursor: var(--cursor-wait);
+}
+
+/* Apply not-allowed cursor */
+.disabled, 
+[disabled], 
+button:disabled {
+  cursor: var(--cursor-not-allowed);
+}

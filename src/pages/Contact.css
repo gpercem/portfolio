@@ -7,7 +7,8 @@
 
 .contact-content {
   padding: 40px;
-  margin: 20px 0;
+  max-width: 800px;
+  width: 100%;
   text-align: center;
 }
 
@@ -20,4 +21,26 @@
   color: var(--text-secondary);
   font-size: 1.1rem;
   line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 20px 16px;
+  }
+  
+  .contact-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-description {
+    font-size: 1rem;
+  }
 }

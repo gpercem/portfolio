@@ -1,0 +1,56 @@
+.page {
+  padding: 40px 0;
+  min-height: calc(100vh - 200px); /* Adjust as needed based on header/footer */
+  width: 100%;
+  position: relative;
+  display: flex; /* For centering content if needed */
+  align-items: center; /* For centering content if needed */
+  justify-content: center; /* For centering content if needed */
+}
+
+.projects-content {
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.projects-content h1 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.projects-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 30px 0;
+  }
+  .projects-content {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 20px 0;
+    align-items: flex-start; /* Align to top on very small screens */
+  }
+  .projects-content {
+    padding: 20px 16px;
+  }
+  
+  .projects-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .projects-description {
+    font-size: 1rem;
+  }
+}

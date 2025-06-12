@@ -6,13 +6,16 @@
 
 :root {
   /* Light mode */
-  --bg-primary: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  --bg-secondary: rgba(255, 255, 255, 0.3);
-  --bg-card: rgba(255, 255, 255, 0.25);
+  --bg-primary: 
+    radial-gradient(circle at 20% 80%, #3b83f64f 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, #8000203d 0%, transparent 50%),
+    linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --bg-secondary: rgba(255, 255, 255, 0.2);
+  --bg-card: rgba(255, 255, 255, 0.2);
   --text-primary: #212529;
   --text-secondary: #6c757d;
-  --text-accent: #495057;
-  --border: rgba(255, 255, 255, 0.3);
+  --text-accent: #1e40af;
+  --border: rgba(255, 255, 255, 0.4);
   --shadow: rgba(0, 0, 0, 0.1);
 }
 
@@ -41,12 +44,11 @@ body {
 
 .glass {
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 8px 32px var(--shadow);
-  opacity: 0.86;
 }
 
 .container {

@@ -1,0 +1,314 @@
+/* =================================================================
+   PAGE LAYOUT & CENTERING
+   ================================================================= */
+
+.page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px 0;
+  position: relative;
+}
+
+.about-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.about-bento {
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* =================================================================
+   BENTO GRID LAYOUT
+   ================================================================= */
+
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, minmax(120px, 1fr)); 
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  box-sizing: border-box;
+}
+
+/* Grid Item Positioning */
+.bento-intro { grid-column: 1 / span 3; grid-row: 1 / span 2; }
+.bento-skills { grid-column: 4 / span 3; grid-row: 1 / span 1; }
+.bento-experience { grid-column: 4 / span 2; grid-row: 2 / span 1; }
+.bento-education { grid-column: 6 / span 1; grid-row: 2 / span 1; }
+.bento-interests { grid-column: 1 / span 2; grid-row: 3 / span 2; }
+.bento-stats { grid-column: 3 / span 2; grid-row: 3 / span 2; }
+.bento-contact { grid-column: 5 / span 2; grid-row: 3 / span 2; }
+
+/* =================================================================
+   BENTO ITEM STYLING
+   ================================================================= */
+
+.bento-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+.bento-content {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* =================================================================
+   TYPOGRAPHY
+   ================================================================= */
+
+.bento-item h2 {
+  font-size: 1.85rem;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.bento-item h3 {
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.bento-item p,
+.bento-item ul,
+.bento-item div > div:not(.bento-icon):not(.skills-list):not(.stats-list):not(.bento-period) {
+  color: var(--text-secondary);
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.bento-item strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bento-period {
+  font-size: 0.85rem;
+  color: var(--text-accent);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* =================================================================
+   SKILLS SECTION
+   ================================================================= */
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skills-list span {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-list span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* =================================================================
+   INTERESTS SECTION
+   ================================================================= */
+
+.interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.interests-list li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =================================================================
+   STATS SECTION
+   ================================================================= */
+
+.stats-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px; 
+  margin-top: auto; 
+  width: 100%;
+}
+
+.stats-list > div { 
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-top: 2px;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .about-container {
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+  }
+  
+  .about-bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, minmax(120px, auto));
+    gap: 16px;
+    height: auto;
+    max-height: none;
+  }
+  
+  /* Tablet Grid Layout */
+  .bento-intro { grid-column: 1 / span 4; grid-row: 1 / span 1; }
+  .bento-skills { grid-column: 1 / span 2; grid-row: 2 / span 1; }
+  .bento-experience { grid-column: 3 / span 2; grid-row: 2 / span 1; }
+  .bento-education { grid-column: 1 / span 2; grid-row: 3 / span 1; }
+  .bento-interests { grid-column: 3 / span 2; grid-row: 3 / span 1; }
+  .bento-stats { grid-column: 1 / span 4; grid-row: 4 / span 1; }
+  .bento-contact { grid-column: 1 / span 4; grid-row: 5 / span 1; }
+
+  .bento-content {
+    padding: 20px;
+  }
+
+  .stats-list {
+    margin-top: 16px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 700px) {
+  .about-container {
+    padding: 20px 15px;
+  }
+  
+  .about-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fill, minmax(150px, auto));
+    gap: 12px;
+  }
+  
+  /* Mobile Grid Layout */
+  .bento-intro { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-skills { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-experience { grid-column: 1 / span 1; grid-row: auto; }
+  .bento-education { grid-column: 2 / span 1; grid-row: auto; }
+  .bento-interests { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-stats { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-contact { grid-column: 1 / span 2; grid-row: auto; }
+
+  .bento-content { 
+    padding: 16px; 
+  }
+  
+  .bento-item h2 { 
+    font-size: 1.6rem; 
+  }
+  
+  .bento-item h3 { 
+    font-size: 1.2rem; 
+  }
+  
+  .bento-item p, 
+  .bento-item ul, 
+  .bento-item div > div:not(.bento-icon):not(.skills-list):not(.stats-list):not(.bento-period) {
+    font-size: 0.95rem;
+  }
+  
+  .stat-number { 
+    font-size: 1.8rem; 
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .about-container {
+    padding: 15px 10px;
+  }
+  
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  /* Single Column Layout */
+  .bento-intro, .bento-skills, .bento-experience, .bento-education,
+  .bento-interests, .bento-stats, .bento-contact {
+    grid-column: 1 / span 1;
+    grid-row: auto;
+  }
+  
+  .stats-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stats-list > div {
+    align-items: flex-start;
+  }
+}

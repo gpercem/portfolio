@@ -1,98 +1,100 @@
 import './About.css'
+import SkillsScroll from '../components/SkillsScroll'
+import { HiOutlineGlobeAlt, HiMail, HiOutlineDocumentText, HiCode } from 'react-icons/hi'
 
 const About = () => {
+  // Define skills for the animation
+  const skills = ['React', 'Node.js', 'TypeScript', 'CSS', 'Python', 'MongoDB', 'Git', 'AWS', 'Docker', 'React Native', 'GraphQL', 'Redux'];
+
   return (
-    <div className="about-container">
-      <div className="about-bento-grid">
-        {/* Large Intro Card */}
-        <div className="bento-item bento-intro glass">
-          <div className="bento-content">
-            <h2>Hello, I'm Gokhan</h2>
+    <div className="about-page">
+      <div className="about-container">
+        <div className="grid">
+          {/* Item 0: About Me */}
+          <div className="item item-0 glass">
+            <h2>About Me</h2>
             <p>
-              Full stack developer passionate about building beautiful, functional, and user-friendly applications. I love modern web technologies and creative problem solving.
+              I am a full-stack developer passionate about building beautiful, functional, and user-friendly applications. I thrive on learning modern web technologies and creatively solving problems. My journey in software development is driven by a desire to create impactful digital experiences.
             </p>
           </div>
-        </div>
-        {/* Skills Card */}
-        <div className="bento-item bento-skills glass">
-          <div className="bento-content">
-            <div className="skills-header">
-              <h3>Skills</h3>
-              <div className="skills-list">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>TypeScript</span>
-                <span>CSS</span>
-                <span>Python</span>
-                <span>MongoDB</span>
+
+          {/* Item 1: My Skills */}
+          <div className="item item-1 glass">
+            <h2>My Skills</h2>
+            <div className="skills-container">
+              <SkillsScroll skills={skills} />
+            </div>
+          </div>
+
+          {/* Social Media Grid (Items 2-5) */}
+          <div className="social-grid-wrapper">
+            {/* Item 2: GitHub */}
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="item item-2 glass social-item">
+              <HiCode className="social-icon" />
+              <span className="social-label">GitHub</span>
+            </a>
+
+            {/* Item 3: Portfolio/Website */}
+            <a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="item item-3 glass social-item">
+              <HiOutlineGlobeAlt className="social-icon" />
+              <span className="social-label">Website</span>
+            </a>
+
+            {/* Item 4: Email */}
+            <a href="mailto:your.email@example.com" className="item item-4 glass social-item">
+              <HiMail className="social-icon" />
+              <span className="social-label">Email</span>
+            </a>
+
+            {/* Item 5: Resume/CV */}
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="item item-5 glass social-item">
+              <HiOutlineDocumentText className="social-icon" />
+              <span className="social-label">Resume</span>
+            </a>
+          </div>
+
+          {/* Item 6: Education */}
+          <div className="item item-6 glass">
+            <h2>Education</h2>
+            <div className="education-container">
+              <div className="education-item">
+                <div className="education-header">
+                  <h3>Computer Science Degree</h3>
+                  <span className="education-year">2018-2022</span>
+                </div>
+                <p>University of Technology</p>
+                <p className="education-description">Studied advanced algorithms, software design patterns, and modern web development.</p>
               </div>
             </div>
           </div>
-        </div>
-        {/* Experience Card - Now contains Stats content */}
-        <div className="bento-item bento-experience glass">
-          <div className="bento-content">
-            <h3>Stats</h3>
-            <div className="stats-list">
-              <div>
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Projects</span>
-              </div>
-              <div>
-                <span className="stat-number">3+</span>
-                <span className="stat-label">Years</span>
-              </div>
-              <div>
-                <span className="stat-number">100+</span>
-                <span className="stat-label">Commits/mo</span>
-              </div>
-            </div>
+
+          {/* Item 7: Sample */}
+          <div className="item item-7 glass">
+            <h2>Experience</h2>
+            <p>Details about my professional experience and work history.</p>
           </div>
-        </div>
-        {/* Education Card */}
-        <div className="bento-item bento-education glass">
-          <div className="bento-content">
-            <h3>Education</h3>
-            <div>
-              <strong>BSc Computer Science</strong>
-              <div className="bento-period">2016 - 2020</div>
-              <div>Software engineering & web development</div>
-            </div>
+
+          {/* Item 8: Sample */}
+          <div className="item item-8 glass">
+            <h2>Projects</h2>
+            <p>Highlights of key projects I've worked on, including personal and professional work.</p>
           </div>
-        </div>
-        {/* Interests Card */}
-        <div className="bento-item bento-interests glass">
-          <div className="bento-content">
-            <h3>Interests</h3>
-            <ul className="interests-list">
-              <li>Space Tech</li>
-              <li>Music</li>
-              <li>Learning</li>
-              <li>Open Source</li>
-            </ul>
+
+          {/* Item 9: Sample */}
+          <div className="item item-9 glass">
+            <h2>Technologies</h2>
+            <p>Specialized technologies and tools I work with on a regular basis.</p>
           </div>
-        </div>
-        {/* Stats Card - Now contains Experience content */}
-        <div className="bento-item bento-stats glass">
-          <div className="bento-content">
-            <h3>Experience</h3>
-            <div>
-              <strong>Full Stack Developer</strong>
-              <div className="bento-period">2020 - Present</div>
-              <div>Modern web apps, UI/UX, backend APIs</div>
-            </div>
-          </div>
-        </div>
-        {/* Contact Card */}
-        <div className="bento-item bento-contact glass">
-          <div className="bento-content">
-            <h3>Let's Connect</h3>
-            <p>Open to new opportunities and collaborations.</p>
+
+          {/* Item 10: Sample */}
+          <div className="item item-10 glass">
+            <h2>Interests</h2>
+            <p>My personal interests and hobbies outside of development.</p>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

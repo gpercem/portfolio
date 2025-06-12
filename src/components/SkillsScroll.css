@@ -1,0 +1,77 @@
+.skills-scroll-wrapper {
+  width: 100%;
+  overflow: visible; /* Changed from 'hidden' to allow vertical expansion */
+  position: relative;
+  margin: 10px 0;
+}
+
+.skills-scroll-container {
+  display: flex;
+  flex-direction: column; /* Added to ensure proper vertical stacking */
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Keep horizontal overflow hidden */
+  height: auto; /* Ensure it adapts to content height */
+}
+
+/* Remove shadow pseudo-elements */
+
+.skills-track {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  animation: scrollX 30s linear infinite;
+  white-space: nowrap;
+  min-height: 50px; /* Add minimum height to ensure visibility */
+  align-items: center; /* Center items vertically */
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%); /* Changed from -100% to -33.33% since we now have 3 copies */
+  }
+}
+
+.skill-item {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* Adjust animation speed on smaller screens */
+@media (max-width: 700px) {
+  .skills-track {
+    animation-duration: 25s;
+  }
+  
+  .skill-item {
+    padding: 4px 10px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-track {
+    animation-duration: 20s;
+  }
+  
+  .skill-item {
+    padding: 3px 8px;
+    font-size: 0.8em;
+  }
+}

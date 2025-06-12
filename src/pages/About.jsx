@@ -76,19 +76,22 @@ const About = () => {
             </div>
           </div>
 
-          {/* Item 7: Programs - Changed from Experience */}
+          {/* Item 7: Programs */}
           <div className="item item-7 glass">
             <h2>Programs</h2>
             <ProgramsCarousel programs={programs} />
           </div>
 
-          {/* Item 8: Sample */}
-          <div className="item item-8 glass">
+          {/* Item 8: Projects */}
+          <Link to="/projects" className="item item-8 glass contact-link">
             <h2>Projects</h2>
             <p>Highlights of key projects I've worked on, including personal and professional work.</p>
-          </div>
+            <div className="corner-link-circle">
+              <HiArrowUpRight className="corner-link-icon" />
+            </div>
+          </Link>
 
-          {/* Item 9: Tech (Changed from Technologies) */}
+          {/* Item 9: Tech */}
           <div className="item item-9 glass">
             <h2>Tech</h2>
             <ul className="tech-list">
@@ -101,7 +104,7 @@ const About = () => {
             </ul>
           </div>
 
-          {/* Item 10: Contact Me Link (Changed from button) */}
+          {/* Item 10: Contact Me Link */}
           <Link to="/contact" className="item item-10 glass contact-link">
             <h2>Contact Me</h2>
             <p>Want to work together? Feel free to reach out.</p>

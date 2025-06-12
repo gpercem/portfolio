@@ -528,7 +528,7 @@
 }
 
 /* Replace the contact link styles with these new ones */
-.item-10.contact-link {
+.item.contact-link {
   text-decoration: none;
   color: var(--text-primary);
   position: relative;
@@ -536,7 +536,7 @@
 }
 
 /* Override default button press effect for the contact link */
-.item-10.contact-link:active {
+.item.contact-link:active {
   transform: scale(0.96) !important; /* Override the default 0.9 scale */
 }
 
@@ -559,7 +559,7 @@
   font-size: 0.9rem;
 }
 
-.item-10.contact-link:hover .corner-link-circle {
+.item.contact-link:hover .corner-link-circle {
   opacity: 0.5;
 }
 

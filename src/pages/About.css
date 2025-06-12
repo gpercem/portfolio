@@ -1,7 +1,3 @@
-/* =================================================================
-   PAGE LAYOUT
-   ================================================================= */
-
 .about-page {
   width: 100%;
   min-height: calc(100vh - 200px);
@@ -15,13 +11,9 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 50px 20px; 
   box-sizing: border-box;
 }
-
-/* =================================================================
-   GRID LAYOUT
-   ================================================================= */
 
 .grid {
   display: grid;
@@ -41,7 +33,6 @@
   flex-direction: column;
 }
 
-/* Mobile-First Grid Layout */
 .item-0 {
   grid-column: 1 / span 6;
   grid-row: 1 / span 3;
@@ -52,7 +43,6 @@
   grid-row: 4 / span 2;
 }
 
-/* Social Media Grid Wrapper (handles items 2-5) */
 .social-grid-wrapper {
   grid-column: 5 / span 2;
   grid-row: 4 / span 2;
@@ -108,14 +98,9 @@
   grid-row: 12;
 }
 
-/* =================================================================
-   CONTENT ALIGNMENT - Fixing blank space issue
-   ================================================================= */
-
 .item {
-  /* Ensure content is properly aligned within grid cells */
   justify-content: flex-start;
-  height: 100%; /* Fill the grid cell */
+  height: 100%; 
 }
 
 .item h2 {
@@ -135,7 +120,7 @@
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 0; /* Eliminate bottom margin */
+  margin-bottom: 0;
 }
 
 .skills-container {
@@ -144,10 +129,6 @@
   display: flex;
   align-items: center;
 }
-
-/* =================================================================
-   SOCIAL ITEMS STYLING
-   ================================================================= */
 
 .social-item {
   display: flex;
@@ -159,12 +140,8 @@
   transition: transform 0.2s ease-in-out, background-color 0.2s ease;
   gap: 5px;
   padding: 10px;
-  height: 100%; /* Fill the grid cell */
+  height: 100%; 
 }
-
-/* =================================================================
-   EDUCATION SECTION STYLING
-   ================================================================= */
 
 .education-container {
   display: flex;
@@ -172,36 +149,194 @@
   height: 100%;
 }
 
+.education-container.two-columns {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+
+.education-container.two-columns .education-item {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 250px;
+}
+
+.education-separator {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .education-separator {
+    display: block;
+    width: 1px;
+    background-color: var(--text-secondary);
+    opacity: 0.3;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    height: 80%;
+  }
+}
+
 .education-item {
-  margin-bottom: 15px;
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .education-item:last-child {
-  margin-bottom: 0; /* No margin on last item */
+  margin-bottom: 0;
+}
+
+/* Hiding the Current badge */
+.education-badge {
+  display: none;
 }
 
 .education-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
+}
+
+.education-header h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-primary);
 }
 
 .education-year {
   font-size: 0.85rem;
   color: var(--text-accent);
+  font-weight: 500;
+}
+
+.education-degree {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
 }
 
 .education-description {
-  margin-top: 5px;
-  font-style: italic;
-  margin-bottom: 0; /* No bottom margin */
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  font-style: normal;
 }
 
-/* =================================================================
-   RESPONSIVE DESIGN - DESKTOP
-   ================================================================= */
+@media (max-width: 768px) {
+  .education-item {
+    padding-left: 0;
+  }
+  
+  .education-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .education-degree {
+    font-size: 0.95rem;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .education-badge {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+  }
+}
+
+
+.tech-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tech-item {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tech-name {
+  font-size: 0.9rem;
+}
+
+.tech-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .tech-list {
+    gap: 10px;
+  }
+  
+  .tech-item {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+  
+  .tech-icon-svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .tech-name {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-list {
+    gap: 8px;
+  }
+  
+  .tech-item {
+    padding: 5px 10px;
+    gap: 6px;
+  }
+  
+  .tech-icon-svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .tech-name {
+    font-size: 0.8rem;
+  }
+}
 
 @media (min-width: 768px) {
   .grid {
@@ -220,7 +355,6 @@
     grid-row: 1 / span 2;
   }
 
-  /* Social Media Grid in Desktop View */
   .social-grid-wrapper {
     grid-column: 11 / span 2;
     grid-row: 1 / span 2;
@@ -252,8 +386,6 @@
     grid-column: 9 / span 4;
     grid-row: 5 / span 2;
   }
-
-  /* Adjust font sizes for desktop */
   .item h2 {
     font-size: 1.75rem;
   }
@@ -267,17 +399,13 @@
   }
 
   .social-icon {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .social-label {
     font-size: 0.9rem;
   }
 }
-
-/* =================================================================
-   TABLET ADJUSTMENTS
-   ================================================================= */
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .item {
@@ -296,10 +424,6 @@
     font-size: 1.8rem;
   }
 }
-
-/* =================================================================
-   MOBILE ADJUSTMENTS
-   ================================================================= */
 
 @media (max-width: 768px) {
   .about-container {
@@ -334,11 +458,24 @@
   .social-label {
     font-size: 0.75rem;
   }
-}
 
-/* =================================================================
-   SMALL MOBILE ADJUSTMENTS
-   ================================================================= */
+  .education-container.two-columns {
+    flex-direction: column;
+  }
+
+  .education-container.two-columns .education-item {
+    flex: 1 1 100%;
+  }
+
+  .education-separator {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-secondary);
+    opacity: 0.3;
+    margin: 10px 0;
+  }
+}
 
 @media (max-width: 480px) {
   .about-container {
@@ -375,5 +512,79 @@
 
   .social-label {
     font-size: 0.7rem;
+  }
+}
+
+.item-10 {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+/* Replace the contact link styles with these new ones */
+.item-10.contact-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  position: relative;
+  cursor: pointer;
+}
+
+/* Override default button press effect for the contact link */
+.item-10.contact-link:active {
+  transform: scale(0.96) !important; /* Override the default 0.9 scale */
+}
+
+.corner-link-circle {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.corner-link-icon {
+  font-size: 0.9rem;
+}
+
+.item-10.contact-link:hover .corner-link-circle {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .corner-link-circle {
+    width: 26px;
+    height: 26px;
+    bottom: 12px;
+    left: 12px;
+  }
+  
+  .corner-link-icon {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .corner-link-circle {
+    width: 24px;
+    height: 24px;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .corner-link-icon {
+    font-size: 0.75rem;
   }
 }

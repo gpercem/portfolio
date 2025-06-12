@@ -1,10 +1,24 @@
 import './About.css'
 import SkillsScroll from '../components/SkillsScroll'
-import { HiOutlineGlobeAlt, HiMail, HiOutlineDocumentText, HiCode } from 'react-icons/hi'
+import ProgramsCarousel from '../components/IconsCarousel'
+import { FaGithub, FaInstagram, FaItchIo, FaLinkedin } from 'react-icons/fa'
+import { SiReact, SiNextdotjs, SiTailwindcss } from 'react-icons/si'
+import { HiArrowUpRight } from 'react-icons/hi2'
+import { Link } from 'react-router'
 
 const About = () => {
   // Define skills for the animation
-  const skills = ['React', 'Node.js', 'TypeScript', 'CSS', 'Python', 'MongoDB', 'Git', 'AWS', 'Docker', 'React Native', 'GraphQL', 'Redux'];
+  const skills = ['C', 'C#', 'JavaScript', 'Python', 'React', 'React Native', 'Postgres', 'Unity', 'Godot'];
+  
+  // Define programs for the animation - removed Node.js, Figma, After Effects and added Godot, Fusion360
+  const programs = ['Visual Studio Code', 'Photoshop', 'Illustrator', 'Unity', 'Blender', 'Godot', 'Fusion360'];
+
+  // Define tech badges with their icons
+  const techBadges = [
+    { name: 'Next.JS', icon: <SiNextdotjs className="tech-icon-svg" style={{ color: '#000000' }} /> },
+    { name: 'React', icon: <SiReact className="tech-icon-svg" style={{ color: '#61DAFB' }} /> },
+    { name: 'Tailwind', icon: <SiTailwindcss className="tech-icon-svg" style={{ color: '#38B2AC' }} /> }
+  ];
 
   return (
     <div className="about-page">
@@ -20,7 +34,7 @@ const About = () => {
 
           {/* Item 1: My Skills */}
           <div className="item item-1 glass">
-            <h2>My Skills</h2>
+            <h2>Skills</h2>
             <div className="skills-container">
               <SkillsScroll skills={skills} />
             </div>
@@ -28,28 +42,20 @@ const About = () => {
 
           {/* Social Media Grid (Items 2-5) */}
           <div className="social-grid-wrapper">
-            {/* Item 2: GitHub */}
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="item item-2 glass social-item">
-              <HiCode className="social-icon" />
-              <span className="social-label">GitHub</span>
+            <a href="https://github.com/gpercem" target="_blank" rel="noopener noreferrer" className="item item-2 glass social-item">
+              <FaGithub className="social-icon" />
             </a>
 
-            {/* Item 3: Portfolio/Website */}
-            <a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="item item-3 glass social-item">
-              <HiOutlineGlobeAlt className="social-icon" />
-              <span className="social-label">Website</span>
+            <a href="https://linkedin.com/in/gokhanpercem" target="_blank" rel="noopener noreferrer" className="item item-3 glass social-item">
+              <FaLinkedin className="social-icon" />
             </a>
 
-            {/* Item 4: Email */}
-            <a href="mailto:your.email@example.com" className="item item-4 glass social-item">
-              <HiMail className="social-icon" />
-              <span className="social-label">Email</span>
+            <a href="https://instagram.com/gokhanpercem" target="_blank" rel="noopener noreferrer" className="item item-4 glass social-item">
+              <FaInstagram className="social-icon" />
             </a>
 
-            {/* Item 5: Resume/CV */}
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="item item-5 glass social-item">
-              <HiOutlineDocumentText className="social-icon" />
-              <span className="social-label">Resume</span>
+            <a href="https://gokomon.itch.io" target="_blank" rel="noopener noreferrer" className="item item-5 glass social-item">
+              <FaItchIo className="social-icon" />
             </a>
           </div>
 
@@ -58,20 +64,22 @@ const About = () => {
             <h2>Education</h2>
             <div className="education-container">
               <div className="education-item">
-                <div className="education-header">
-                  <h3>Computer Science Degree</h3>
-                  <span className="education-year">2018-2022</span>
+                <div className="education-content">
+                  <div className="education-header">
+                    <h3>Kocaeli University</h3>
+                    <span className="education-year">2024 - Present</span>
+                  </div>
+                  <h4 className="education-degree">Software Engineering</h4>
+                  <p className="education-description">Studied software development, algorithms, and modern web technologies. Developing practical skills through project-based learning.</p>
                 </div>
-                <p>University of Technology</p>
-                <p className="education-description">Studied advanced algorithms, software design patterns, and modern web development.</p>
               </div>
             </div>
           </div>
 
-          {/* Item 7: Sample */}
+          {/* Item 7: Programs - Changed from Experience */}
           <div className="item item-7 glass">
-            <h2>Experience</h2>
-            <p>Details about my professional experience and work history.</p>
+            <h2>Programs</h2>
+            <ProgramsCarousel programs={programs} />
           </div>
 
           {/* Item 8: Sample */}
@@ -80,17 +88,27 @@ const About = () => {
             <p>Highlights of key projects I've worked on, including personal and professional work.</p>
           </div>
 
-          {/* Item 9: Sample */}
+          {/* Item 9: Tech (Changed from Technologies) */}
           <div className="item item-9 glass">
-            <h2>Technologies</h2>
-            <p>Specialized technologies and tools I work with on a regular basis.</p>
+            <h2>Tech</h2>
+            <ul className="tech-list">
+              {techBadges.map((tech, index) => (
+                <li key={`tech-${index}`} className="tech-item">
+                  <span className="tech-icon">{tech.icon}</span>
+                  <span className="tech-name">{tech.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Item 10: Sample */}
-          <div className="item item-10 glass">
-            <h2>Interests</h2>
-            <p>My personal interests and hobbies outside of development.</p>
-          </div>
+          {/* Item 10: Contact Me Link (Changed from button) */}
+          <Link to="/contact" className="item item-10 glass contact-link">
+            <h2>Contact Me</h2>
+            <p>Want to work together? Feel free to reach out.</p>
+            <div className="corner-link-circle">
+              <HiArrowUpRight className="corner-link-icon" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

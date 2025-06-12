@@ -1,0 +1,58 @@
+.glass-button {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glass-button:hover, .glass-button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.glass-button:active {
+  transform: scale(0.9);
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.glass-button-primary {
+  background: var(--bg-card);
+}
+
+.glass-button-secondary {
+  background: transparent;
+}
+
+.glass-button-secondary:hover {
+  background: var(--bg-card);
+}
+
+@media (max-width: 768px) {
+  .glass-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}

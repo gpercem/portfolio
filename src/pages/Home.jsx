@@ -1,5 +1,5 @@
 import { HiEye, HiMail } from 'react-icons/hi'
-import { Link } from 'react-router'
+import GlassButton from '../components/GlassButton'
 import './Home.css'
 
 const Home = () => {
@@ -8,20 +8,20 @@ const Home = () => {
       <h1 className="hero-title">
         Hi, I'm <span className="text-accent">Gökhan Perçem</span>
       </h1>
-      <p className="hero-subtitle">Full Stack Developer</p>
+      <p className="hero-subtitle">Full Stack & Game Developer</p>
       <p className="hero-description">
         I create beautiful and functional web applications using modern technologies.
         Passionate about clean code, user experience, and innovative solutions.
       </p>
       <div className="hero-actions">
-        <Link to="/projects" className="btn-primary">
+        <GlassButton to="/projects" variant="primary">
           <HiEye />
           <span>View My Work</span>
-        </Link>
-        <Link to="/contact" className="btn-secondary">
+        </GlassButton>
+        <GlassButton to="/contact" variant="secondary">
           <HiMail />
           <span>Get In Touch</span>
-        </Link>
+        </GlassButton>
       </div>
     </div>
   )

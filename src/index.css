@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Ambit', -apple-system, BlinkMacSystemFont, sans-serif;
+
 }
 
 :root {
@@ -17,6 +19,9 @@
   --text-accent: #1e40af;
   --border: rgba(255, 255, 255, 0.4);
   --shadow: rgba(0, 0, 0, 0.1);
+  --hover-overlay: rgba(255,255,255,0.42); /* Changed to dark overlay for light mode */
+  --selection-bg: rgba(200, 200, 200, 0.4);
+  --selection-text: currentColor;
 }
 
 [data-theme="dark"] {
@@ -32,10 +37,18 @@
   --text-accent: #dee2e6;
   --border: rgba(255, 255, 255, 0.15);
   --shadow: rgba(0, 0, 0, 0.4);
+  --hover-overlay: rgba(110, 110, 110, 0.01); /* Reduced opacity to make less intense */
+  --selection-bg: rgba(200, 200, 200, 0.3);
+  --selection-text: currentColor;
+}
+
+/* Text selection styling */
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 body {
-  font-family: 'Ambit', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
@@ -46,9 +59,25 @@ body {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 2px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 8px 32px var(--shadow);
+  position: relative;
+  z-index: 1;
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--border) 0%, transparent 100%);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
 }
 
 .container {
@@ -68,4 +97,22 @@ body {
   .container {
     padding: 0 12px;
   }
+}
+
+/* Button press effect */
+a,
+button {
+  position: relative;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  z-index: 1;
+}
+
+a:hover,
+button:hover {
+  background-color: var(--hover-overlay);
+}
+
+a:active,
+button:active {
+  transform: scale(0.9);
 }

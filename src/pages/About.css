@@ -527,17 +527,14 @@
   padding-top: 15px;
 }
 
-/* Replace the contact link styles with these new ones */
 .item.contact-link {
   text-decoration: none;
   color: var(--text-primary);
   position: relative;
-  cursor: pointer;
 }
 
-/* Override default button press effect for the contact link */
 .item.contact-link:active {
-  transform: scale(0.96) !important; /* Override the default 0.9 scale */
+  transform: scale(0.96) !important;
 }
 
 .corner-link-circle {

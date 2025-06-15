@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Ambit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
+img {
+  image-rendering: auto; 
 }
 
 :root {

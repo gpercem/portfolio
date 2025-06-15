@@ -20,15 +20,22 @@
   z-index: 1;
 }
 
-.glass-button:hover, .glass-button:focus {
+.glass-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px var(--shadow);
 }
 
-.glass-button:active {
-  transform: scale(0.9);
-  box-shadow: 0 4px 16px var(--shadow);
+.glass-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff17;
 }
+
+.glass-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.1s ease;
+}
+
 
 .glass-button-primary {
   background: var(--bg-card);

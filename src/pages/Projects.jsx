@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules'
-import { HiExternalLink, HiCode, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
+import { HiExternalLink, HiCode, HiChevronLeft, HiChevronRight, HiEye, HiPhotograph, HiPlay } from 'react-icons/hi'
 import { motion, AnimatePresence } from 'framer-motion'
 import GlassButton from '../components/GlassButton'
+import ProjectImageModal from '../components/ProjectImageModal'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -15,6 +16,8 @@ const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(null)
   const swiperRef = useRef(null)
   
   useEffect(() => {
@@ -44,65 +47,78 @@ const Projects = () => {
     {
       id: 1,
       title: "Personal Portfolio",
-      description: "A modern, responsive portfolio website with glassmorphism design",
-      image: "/images/projects/portfolio.png",
+      description: "A modern, responsive, made-from-scratch portfolio site with a glassmorphism design.",
+      thumbnail: "/images/projects/portfolio_mockup.jpg",
+      images: [
+        "/images/projects/portfolio.jpg"
+      ],
+      imageDescriptions: [
+        "Full homepage view showcasing the glassmorphism design with an animated background and responsive layout."
+      ],
       tags: ["react", "css", "framer-motion"],
       liveUrl: "https://gokhanpercem.com",
+      liveText: "Visit Site",
+      liveIcon: HiExternalLink,
       codeUrl: "https://github.com/gpercem/portfolio",
-      type: "apps"
-    },
-    {
-      id: 2,
-      title: "Mobile App UI",
-      description: "Clean and minimalist mobile app interface for a fitness tracking application",
-      image: "/images/projects/portfolio.png",
-      tags: ["figma", "ui/ux", "design"],
-      liveUrl: "https://dribbble.com/",
-      type: "designs"
-    },
-    {
-      id: 3,
-      title: "Space Shooter Game",
-      description: "A 2D space shooter with modern graphics and engaging gameplay",
-      image: "/images/projects/portfolio.png",
-      tags: ["unity", "c#", "game-design"],
-      liveUrl: "https://gokomon.itch.io/",
-      codeUrl: "https://github.com/gpercem/spaceshooter",
-      type: "games"
-    },
-    {
-      id: 4,
-      title: "E-commerce Dashboard",
-      description: "Admin dashboard for managing products, orders and customers",
-      image: "/images/projects/portfolio.png",
-      tags: ["react", "material-ui", "charts"],
-      liveUrl: "https://dashboard-demo.com",
-      codeUrl: "https://github.com/gpercem/dashboard",
+      codeText: "View Code",
+      codeIcon: HiCode,
       type: "apps"
     },
     {
       id: 5,
-      title: "Brand Identity Design",
-      description: "Complete visual identity including logo, color palette, and typography",
-      image: "/images/projects/portfolio.png",
+      title: "Apeiron Rocketry Brand Design",
+      description: "Visual identity, including logo, color palette, and typography, for a rocketry team.",
+      thumbnail: "/images/projects/apeiron_logo_dark.jpg",
+      images: [
+        "/images/projects/apeiron_logo_dark.jpg",
+        "/images/projects/apeiron_logo_light.jpg",
+      ],
+      imageDescriptions: [
+        "Dark theme logo design featuring the Apeiron wordmark with a rocket and Turkish mythological dragon Bukrek-inspired typography and color scheme.",
+        "Light theme variation of the logo, maintaining brand consistency across different backgrounds."
+      ],
       tags: ["branding", "illustrator", "design"],
-      liveUrl: "https://behance.net/",
+      liveUrl: "https://www.instagram.com/apeironrocketry/",
+      liveText: "View Brand",
+      liveIcon: HiPhotograph,
       type: "designs"
     },
     {
-      id: 6,
-      title: "Puzzle Adventure",
-      description: "A 3D puzzle game with immersive environments and challenging mechanics",
-      image: "/images/projects/portfolio.png",
-      tags: ["unity", "c#", "3d-modeling"],
-      liveUrl: "https://gokomon.itch.io/puzzle",
-      type: "games"
-    }
+      id: 7,
+      title: "Apeiron T-shirt & Hoodie Design",
+      description: "A T-shirt and hoodie design for the Apeiron rocketry team, featuring the mascot 'BUKREK'.",
+      thumbnail: "/images/projects/apeiron_tshirt.jpg",
+      images: [
+        "/images/projects/apeiron_tshirt.jpg",
+        "/images/projects/apeiron_tshirt_zoomed.jpg",
+        "/images/projects/apeiron_tshirt_zoomed_2.jpg"
+      ],
+      imageDescriptions: [
+        "Showcase of both the T-shirt and hoodie designs featuring the bold BUKREK mascot.",
+        "Close-up of the hoodie that highlights intricate design details of the BUKREK mascot.",
+        "Close-up of the T-shirt design emphasizing a modern, graphic take on the APEIRON logo."
+      ],
+      tags: ["fashion", "illustrator", "design"],
+      liveUrl: "https://www.instagram.com/stories/highlights/17978698895031935/",
+      liveText: "View Gallery",
+      liveIcon: HiPhotograph,
+      type: "designs"
+    },
   ]
   
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.type === activeFilter)
+  
+  const openModal = (project) => {
+    setSelectedProject(project)
+    setModalOpen(true)
+  }
+  
+  const closeModal = () => {
+    setModalOpen(false)
+    setSelectedProject(null) // Remove setTimeout - clear immediately
+  }
   
   const handleSlideChange = (swiper) => {
     setActiveIndex(swiper.activeIndex)
@@ -232,7 +248,7 @@ const Projects = () => {
               keyboard={{ enabled: true }}
               className="projects-swiper story-swiper"
               onSlideChange={handleSlideChange}
-              grabCursor={true}
+              grabCursor={false}
               touchEventsTarget="container"
               threshold={5}
               touchRatio={1}
@@ -251,6 +267,7 @@ const Projects = () => {
                         }}
                         isLoaded={imagesLoaded[project.id]}
                         isMobile={isMobile}
+                        openModal={() => openModal(project)}
                       />
                     )
                   )}
@@ -284,6 +301,7 @@ const Projects = () => {
                           }}
                           isLoaded={imagesLoaded[project.id]}
                           isMobile={false}
+                          openModal={() => openModal(project)}
                         />
                       </motion.div>
                     ))}
@@ -351,12 +369,22 @@ const Projects = () => {
           </div>
         )}
       </motion.div>
+      
+      {/* Project Images Modal */}
+      <AnimatePresence>
+        {modalOpen && selectedProject && (
+          <ProjectImageModal 
+            project={selectedProject} 
+            onClose={closeModal}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
 // Animated version of the project card component - used for desktop only
-const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
+const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile, openModal }) => {
   const [imageError, setImageError] = useState(false)
   const imageRef = useRef(null)
 
@@ -376,17 +404,20 @@ const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
 
   return (
     <motion.div 
-      className={`project-card glass ${isMobile ? 'story-card' : ''}`}
+      className={`project-card clickable glass ${isMobile ? 'story-card' : ''}`}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       whileHover={!isMobile ? { y: -5, boxShadow: "0 10px 30px var(--shadow)" } : {}}
+      onClick={() => openModal && openModal(project)}
     >
-      <div className={`project-image-container ${!isLoaded ? 'image-loading' : ''}`}>
+      <div 
+        className={`project-image-container ${!isLoaded ? 'image-loading' : ''}`}
+      >
         {!isLoaded && !imageError && <div className="image-placeholder-loader"></div>}
         <motion.img 
           ref={imageRef}
-          src={project.image} 
+          src={project.thumbnail || project.images[0]} 
           alt={project.title} 
           className={`project-image ${isLoaded ? 'image-loaded' : ''}`}
           onLoad={handleImageLoad}
@@ -394,7 +425,13 @@ const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         />
+        {project.images && project.images.length > 1 && (
+          <div className="multiple-images-indicator">
+            <span>+{project.images.length - 1}</span>
+          </div>
+        )}
       </div>
+      
       <motion.div 
         className="project-content"
         initial={{ opacity: 0 }}
@@ -438,18 +475,19 @@ const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.3 }}
+          onClick={(e) => e.stopPropagation()}
         >
           {project.liveUrl && (
             <GlassButton href={project.liveUrl} className="project-link" variant="primary">
-              <HiExternalLink />
-              <span>Live Demo</span>
+              <project.liveIcon />
+              <span>{project.liveText}</span>
             </GlassButton>
           )}
           
           {project.codeUrl && (
             <GlassButton href={project.codeUrl} className="project-link" variant="secondary">
-              <HiCode />
-              <span>View Code</span>
+              <project.codeIcon />
+              <span>{project.codeText}</span>
             </GlassButton>
           )}
         </motion.div>
@@ -459,7 +497,7 @@ const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
 }
 
 // Original ProjectCard - used for mobile view
-const ProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
+const ProjectCard = ({ project, onImageLoad, isLoaded, isMobile, openModal }) => {
   const [imageError, setImageError] = useState(false)
   const imageRef = useRef(null)
 
@@ -478,17 +516,26 @@ const ProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
   }
 
   return (
-    <div className={`project-card glass ${isMobile ? 'story-card' : ''}`}>
+    <div 
+      className={`project-card clickable glass ${isMobile ? 'story-card' : ''}`}
+      onClick={() => openModal && openModal()}
+
+    >
       <div className={`project-image-container ${!isLoaded ? 'image-loading' : ''}`}>
         {!isLoaded && !imageError && <div className="image-placeholder-loader"></div>}
         <img 
           ref={imageRef}
-          src={project.image} 
+          src={project.thumbnail || project.images[0]} 
           alt={project.title} 
           className={`project-image ${isLoaded ? 'image-loaded' : ''}`}
           onLoad={handleImageLoad}
           onError={handleImageError}
         />
+        {project.images && project.images.length > 1 && (
+          <div className="multiple-images-indicator">
+            <span>+{project.images.length - 1}</span>
+          </div>
+        )}
       </div>
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
@@ -500,18 +547,21 @@ const ProjectCard = ({ project, onImageLoad, isLoaded, isMobile }) => {
           ))}
         </div>
         
-        <div className="project-links">
+        <div 
+          className="project-links"
+          onClick={(e) => e.stopPropagation()}
+        >
           {project.liveUrl && (
             <GlassButton href={project.liveUrl} className="project-link" variant="primary">
-              <HiExternalLink />
-              <span>Live Demo</span>
+              <project.liveIcon />
+              <span>{project.liveText}</span>
             </GlassButton>
           )}
           
           {project.codeUrl && (
             <GlassButton href={project.codeUrl} className="project-link" variant="secondary">
-              <HiCode />
-              <span>View Code</span>
+              <project.codeIcon />
+              <span>{project.codeText}</span>
             </GlassButton>
           )}
         </div>

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules'
 import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
+import LoadingSpinner from './LoadingSpinner'
 import './ProjectImageModal.css'
 
 const ProjectImageModal = ({ project, onClose }) => {
@@ -117,7 +118,11 @@ const ProjectImageModal = ({ project, onClose }) => {
               {project.images.map((image, index) => (
                 <SwiperSlide key={index} className="modal-slide">
                   <div className={`modal-image-container ${!imagesLoaded[index] ? 'image-loading' : ''}`}>
-                    {!imagesLoaded[index] && <div className="image-placeholder-loader"></div>}
+                    {!imagesLoaded[index] && (
+                      <div className="modal-image-loading-overlay">
+                        <LoadingSpinner />
+                      </div>
+                    )}
                     <img 
                       src={image} 
                       alt={`${project.title} - Image ${index + 1}`} 

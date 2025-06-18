@@ -4,17 +4,16 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import './SkillsScroll.css';
 import { 
-  ReactOriginal, 
-  NodejsPlain, 
-  JavascriptOriginal,
-  Css3Original,
-  PythonOriginal,
-  GitPlain,
-  PostgresqlPlain,
-  UnityOriginal,
-  GodotOriginal,
-} from 'devicons-react';
-import { RiReactjsLine } from 'react-icons/ri';
+  SiReact,
+  SiNodedotjs,
+  SiJavascript,
+  SiCss3,
+  SiPython,
+  SiGit,
+  SiUnity,
+  SiPostgresql,
+  SiGodotengine,
+} from 'react-icons/si';
 
 const SkillsScroll = ({ skills = [] }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,25 +38,25 @@ const SkillsScroll = ({ skills = [] }) => {
   const getSkillIcon = (skill) => {
     switch (skill.toLowerCase()) {
       case 'react':
-        return <ReactOriginal className="skill-icon-svg" />;
+        return <SiReact className="skill-icon-svg" style={{ color: '#61DAFB' }} />;
       case 'node.js':
-        return <NodejsPlain className="skill-icon-svg" />;
+        return <SiNodedotjs className="skill-icon-svg" style={{ color: '#339933' }} />;
       case 'javascript':
-        return <JavascriptOriginal className="skill-icon-svg" />;
+        return <SiJavascript className="skill-icon-svg" style={{ color: '#F7DF1E' }} />;
       case 'css':
-        return <Css3Original  className="skill-icon-svg" />;
+        return <SiCss3 className="skill-icon-svg" style={{ color: '#1572B6' }} />;
       case 'python':
-        return <PythonOriginal className="skill-icon-svg" />;
+        return <SiPython className="skill-icon-svg" style={{ color: '#3776AB' }} />;
       case 'postgres':
-        return <PostgresqlPlain className="skill-icon-svg" />;
+        return <SiPostgresql className="skill-icon-svg" style={{ color: '#336791' }} />;
       case 'git':
-        return <GitPlain className="skill-icon-svg" />;
+        return <SiGit className="skill-icon-svg" style={{ color: '#F05032' }} />;
       case 'react native':
-        return <RiReactjsLine className="skill-icon-svg" />;
+        return <SiReact className="skill-icon-svg" style={{ color: '#61DAFB' }} />;
       case 'unity':
-        return <UnityOriginal className="skill-icon-svg" />;
+        return <SiUnity className="skill-icon-svg" style={{ color: '#ffffff' }} />;
       case 'godot':
-        return <GodotOriginal className="skill-icon-svg" />;
+        return <SiGodotengine className="skill-icon-svg" style={{ color: '#478CBF' }} />;
       default:
         return null;
     }

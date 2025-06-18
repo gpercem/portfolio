@@ -1,9 +1,5 @@
 import './IconsCarousel.css';
-import {
-  VscodeOriginal,
-  BlenderOriginal,
-} from 'devicons-react';
-import { SiAdobephotoshop, SiAdobeillustrator, SiUnity, SiGodotengine, SiAutodesk } from 'react-icons/si';
+import { SiBlender, SiAdobephotoshop, SiAdobeillustrator, SiUnity, SiGodotengine, SiAutodesk, SiFigma } from 'react-icons/si';
 
 const ProgramsCarousel = ({ programs = [] }) => {
   // Create three copies of the programs array to ensure enough content for seamless scrolling
@@ -12,8 +8,6 @@ const ProgramsCarousel = ({ programs = [] }) => {
   // Map programs to their corresponding icons
   const getProgram = (program) => {
     switch (program.toLowerCase()) {
-      case 'visual studio code':
-        return <VscodeOriginal className="program-icon-svg" />;
       case 'photoshop':
         return <SiAdobephotoshop className="program-icon-svg" style={{ color: '#31A8FF' }} />;
       case 'illustrator':
@@ -23,13 +17,11 @@ const ProgramsCarousel = ({ programs = [] }) => {
       case 'unity':
         return <SiUnity className="program-icon-svg" style={{ color: '#FFFFFF' }} />;
       case 'blender':
-        return <BlenderOriginal className="program-icon-svg" />;
+        return <SiBlender className="program-icon-svg" style={{ color: '#F5792A' }} />;
       case 'godot':
         return <SiGodotengine className="program-icon-svg" style={{ color: '#478CBF' }} />;
       case 'fusion360':
         return <SiAutodesk className="program-icon-svg" style={{ color: '#0696D7' }} />;
-      default:
-        return <VscodeOriginal className="program-icon-svg" />;
     }
   };
 

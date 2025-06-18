@@ -1,7 +1,7 @@
 import './About.css'
 import SkillsScroll from '../components/SkillsScroll'
 import ProgramsCarousel from '../components/IconsCarousel'
-import { FaGithub, FaInstagram, FaItchIo, FaLinkedin } from 'react-icons/fa'
+import { SiGithub, SiInstagram, SiItchdotio, SiLinkedin } from 'react-icons/si'
 import { SiReact, SiNextdotjs, SiTailwindcss } from 'react-icons/si'
 import { HiArrowUpRight } from 'react-icons/hi2'
 import { Link } from 'react-router'
@@ -10,8 +10,8 @@ const About = () => {
   // Define skills for the animation
   const skills = ['C', 'C#', 'JavaScript', 'Python', 'React', 'React Native', 'Postgres', 'Unity', 'Godot'];
   
-  // Define programs for the animation - removed Node.js, Figma, After Effects and added Godot, Fusion360
-  const programs = ['Visual Studio Code', 'Photoshop', 'Illustrator', 'Unity', 'Blender', 'Godot', 'Fusion360'];
+  // Define programs for the animation
+  const programs = ['Photoshop', 'Illustrator', 'Unity', 'Blender', 'Godot', 'Fusion360'];
 
   // Define tech badges with their icons
   const techBadges = [
@@ -43,19 +43,19 @@ const About = () => {
           {/* Social Media Grid (Items 2-5) */}
           <div className="social-grid-wrapper">
             <a href="https://github.com/gpercem" target="_blank" rel="noopener noreferrer" className="item item-2 glass social-item">
-              <FaGithub className="social-icon" />
+              <SiGithub className="social-icon" />
             </a>
 
             <a href="https://linkedin.com/in/gokhanpercem" target="_blank" rel="noopener noreferrer" className="item item-3 glass social-item">
-              <FaLinkedin className="social-icon" />
+              <SiLinkedin className="social-icon" />
             </a>
 
             <a href="https://instagram.com/gokhanpercem" target="_blank" rel="noopener noreferrer" className="item item-4 glass social-item">
-              <FaInstagram className="social-icon" />
+              <SiInstagram className="social-icon" />
             </a>
 
             <a href="https://gokomon.itch.io" target="_blank" rel="noopener noreferrer" className="item item-5 glass social-item">
-              <FaItchIo className="social-icon" />
+              <SiItchdotio className="social-icon" />
             </a>
           </div>
 

@@ -118,7 +118,6 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  padding: 30px 20px;
   height: 100%;
 }
 
@@ -132,6 +131,7 @@
   max-height: 60vh;
   object-fit: contain;
   flex-shrink: 0;
+  padding: 20px;
 }
 
 .modal-image {
@@ -224,14 +224,20 @@
   position: relative;
 }
 
-.image-placeholder-loader {
+.modal-image-loading-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-card) 50%, var(--bg-secondary) 75%);
-  background-size: 200% 100%;
-  animation: loadingAnimation 1.5s infinite;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
   border-radius: 8px;
+  z-index: 1;
+}
+
+/* Remove old placeholder loader */
+.image-placeholder-loader {
+  display: none;
 }
 
 @keyframes loadingAnimation {

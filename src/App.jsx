@@ -1,19 +1,43 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense, lazy } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 import { AnimatePresence } from 'framer-motion'
 import Navigation from './components/Navigation'
 import GridBackground from './components/GridBackground'
 import PageTransition from './components/PageTransition'
-import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import Contact from './pages/Contact'
+import LoadingSpinner from './components/LoadingSpinner'
 import { initSmoothScroll } from './utils/smoothScroll'
 import './App.css'
 
+// Lazy load pages
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Projects = lazy(() => import('./pages/Projects'))
+const Contact = lazy(() => import('./pages/Contact'))
+
 function App() {
   const [theme, setTheme] = useState('light')
+  const [isLoading, setIsLoading] = useState(true)
   const location = useLocation()
+
+  // Preload all pages
+  useEffect(() => {
+    const preloadPages = async () => {
+      try {
+        await Promise.all([
+          import('./pages/Home'),
+          import('./pages/About'),
+          import('./pages/Projects'),
+          import('./pages/Contact')
+        ])
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error preloading pages:', error)
+        setIsLoading(false)
+      }
+    }
+
+    preloadPages()
+  }, [])
 
   useEffect(() => {
     // Check for saved theme first, then fall back to system preference
@@ -49,6 +73,15 @@ function App() {
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
     document.documentElement.setAttribute('data-theme', newTheme)
+  }
+
+  if (isLoading) {
+    return (
+      <div className="app">
+        <GridBackground />
+        <LoadingSpinner />
+      </div>
+    )
   }
 
   return (

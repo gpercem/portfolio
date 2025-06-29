@@ -76,15 +76,7 @@
   height: 90px;
   transition: transform 0.3s ease;
 }
-.profile-photo-wrapper:hover { transform: scale(1.03); }
-.profile-photo-border {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--text-accent) 0%, transparent 70%);
-  opacity: 0.6;
-  animation: rotate 10s linear infinite;
-}
+
 .profile-photo {
   width: 100%;
   height: 100%;
@@ -153,7 +145,6 @@
   align-items: center;
   gap: 8px;
 }
-.tech-item:hover { transform: translateY(-3px); box-shadow: 0 4px 10px var(--shadow); }
 .tech-icon-svg { width: 18px; height: 18px; }
 
 /* Contact Link Card */
@@ -302,16 +293,6 @@
   position: relative;
   width: 90px;
   height: 90px;
-  transition: transform 0.3s ease;
-}
-.profile-photo-wrapper:hover { transform: scale(1.03); }
-.profile-photo-border {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--text-accent) 0%, transparent 70%);
-  opacity: 0.6;
-  animation: rotate 10s linear infinite;
 }
 .profile-photo {
   width: 100%;
@@ -381,7 +362,6 @@
   align-items: center;
   gap: 8px;
 }
-.tech-item:hover { transform: translateY(-3px); box-shadow: 0 4px 10px var(--shadow); }
 .tech-icon-svg { width: 18px; height: 18px; }
 
 /* Contact Link Card */
@@ -430,7 +410,7 @@
   .item p { font-size: 1rem; }
   .social-icon { font-size: 2.5rem; }
   .social-label { font-size: 0.9rem; }
-  .profile-photo-wrapper, .profile-photo { width: 110px; height: 110px; }
+  .profile-photo-wrapper, .profile-photo { width: 128px; height: 128px; }
   .profile-name { font-size: 1.8rem; }
   .profile-title { font-size: 1rem; }
   .profile-about { font-size: 0.95rem; }

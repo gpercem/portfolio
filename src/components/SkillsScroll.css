@@ -32,10 +32,6 @@
   height: 16px !important;
 }
 
-.skill-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--shadow);
-}
 
 /* Swiper styles for mobile */
 .skills-swiper {

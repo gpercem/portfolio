@@ -3,8 +3,10 @@ import SkillsScroll from '../components/SkillsScroll'
 import ProgramsCarousel from '../components/IconsCarousel'
 import { SiGithub, SiInstagram, SiItchdotio, SiLinkedin } from 'react-icons/si'
 import { SiReact, SiNextdotjs, SiTailwindcss } from 'react-icons/si'
+import { HiEye, HiDocumentDownload } from 'react-icons/hi'
 import { HiArrowUpRight } from 'react-icons/hi2'
 import { Link } from 'react-router'
+import GlassButton from '../components/GlassButton'
 
 const About = () => {
   // Define skills for the animation
@@ -26,10 +28,29 @@ const About = () => {
         <div className="grid">
           {/* Item 0: About Me */}
           <div className="item item-0 glass">
-            <h2>About Me</h2>
-            <p>
-              I am a full-stack developer passionate about building beautiful, functional, and user-friendly applications. I thrive on learning modern web technologies and creatively solving problems. My journey in software development is driven by a desire to create impactful digital experiences.
-            </p>
+            <div className="profile-container">
+              <div className="profile-photo-wrapper">
+                <div className="profile-photo-border"></div>
+                <img src="/images/about/profile-photo.jpg" alt="Gokhan Percem" className="profile-photo" />
+              </div>
+              <div className="profile-info">
+                <h1 className="profile-name">Gokhan Percem</h1>
+                <div className="profile-title">Full Stack & Game Developer</div>
+                <p className="profile-about">
+                  Creative developer with a passion for game design and web technologies. 
+                </p>
+                <div className="profile-actions">
+                  <GlassButton to="/projects" variant="primary" className="profile-button">
+                    <HiEye />
+                    <span>View Work</span>
+                  </GlassButton>
+                  <GlassButton href="/files/gokhan-percem-cv.pdf" download variant="secondary" className="profile-button">
+                    <HiDocumentDownload />
+                    <span>Download CV</span>
+                  </GlassButton>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Item 1: My Skills */}
@@ -40,7 +61,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Social Media Grid (Items 2-5) */}
+          {/* Social Media Grid */}
           <div className="social-grid-wrapper">
             <a href="https://github.com/gpercem" target="_blank" rel="noopener noreferrer" className="item item-2 glass social-item">
               <SiGithub className="social-icon" />
@@ -85,7 +106,7 @@ const About = () => {
           {/* Item 8: Projects */}
           <Link to="/projects" className="item item-8 glass contact-link">
             <h2>Projects</h2>
-            <p>Highlights of key projects I've worked on, including personal and professional work.</p>
+            <p>Highlights of projects I've worked on, including personal and professional work.</p>
             <div className="corner-link-circle">
               <HiArrowUpRight className="corner-link-icon" />
             </div>

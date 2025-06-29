@@ -1,4 +1,4 @@
-import { HiEye, HiMail } from 'react-icons/hi'
+import { HiEye, HiDocumentDownload } from 'react-icons/hi'
 import GlassButton from '../components/GlassButton'
 import './Home.css'
 
@@ -10,8 +10,9 @@ const Home = () => {
       </h1>
       <p className="hero-subtitle">Full Stack & Game Developer</p>
       <p className="hero-description">
-        I create beautiful and functional web applications using modern technologies.
-        Passionate about clean code, user experience, and innovative solutions.
+        I love building games and web apps.
+        Whether it's designing interactive gameplay or crafting seamless user experiences,
+        I'm passionate about turning ideas into reality.
       </p>
       <div className="hero-actions">
         <GlassButton to="/projects" variant="primary">
@@ -19,8 +20,8 @@ const Home = () => {
           <span>View My Work</span>
         </GlassButton>
         <GlassButton to="/contact" variant="secondary">
-          <HiMail />
-          <span>Get In Touch</span>
+          <HiDocumentDownload />
+          <span>Download CV</span>
         </GlassButton>
       </div>
     </div>

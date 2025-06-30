@@ -19,7 +19,7 @@ const Home = () => {
           <HiEye />
           <span>View My Work</span>
         </GlassButton>
-        <GlassButton to="/files/gokhan-percem-cv.pdf" variant="secondary">
+        <GlassButton href="/files/gokhan-percem-cv.pdf" variant="secondary">
           <HiDocumentDownload />
           <span>Download CV</span>
         </GlassButton>

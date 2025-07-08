@@ -206,6 +206,13 @@
   max-width: 400px;
 }
 
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: var(--text-accent);
+}
+
 @media (max-width: 768px) {
   .contact-content {
     padding: 25px 20px;

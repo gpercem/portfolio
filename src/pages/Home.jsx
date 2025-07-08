@@ -10,9 +10,9 @@ const Home = () => {
       </h1>
       <p className="hero-subtitle">Full Stack & Game Developer</p>
       <p className="hero-description">
-        I love building games and web apps.
-        Whether it's designing interactive gameplay or building user experiences,
-        I'm passionate about turning ideas into reality.
+        I love building cool games and websites.
+        <br />
+        Perfection is the key to my work.
       </p>
       <div className="hero-actions">
         <GlassButton to="/projects" variant="primary">

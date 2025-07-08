@@ -73,8 +73,8 @@ const Contact = () => {
       <div className="contact-content glass">
         <h1>Get In Touch</h1>
         <p className="contact-description">
-          I'm always open to discussing new opportunities and interesting projects.
-          Feel free to reach out!
+          Feel free to reach out to me with this form.<br/>
+          You can also contact me from my <a href="https://linkedin.com/in/gokhanpercem" target="_blank" rel="noopener noreferrer">LinkedIn</a> account.
         </p>
         
         <div className="contact-form-container">
@@ -82,7 +82,7 @@ const Contact = () => {
             <div className="form-success glass">
               <div className="success-icon">✓</div>
               <h2>Thank you!</h2>
-              <p>Your message has been sent successfully. I've also sent you a confirmation email. I'll get back to you soon.</p>
+              <p>Your message has been sent successfully.</p>
               <button 
                 className="form-button"
                 onClick={() => setFormStatus(null)}
@@ -125,7 +125,7 @@ const Contact = () => {
                     id="email"
                     name="email"
                     className="form-input glass-input"
-                    placeholder="your.email@example.com"
+                    placeholder="youremail@example.com"
                     value={formState.email}
                     onChange={handleChange}
                     required
@@ -143,7 +143,7 @@ const Contact = () => {
                   id="subject"
                   name="subject"
                   className="form-input glass-input"
-                  placeholder="What's this about?"
+                  placeholder="The subject..."
                   value={formState.subject}
                   onChange={handleChange}
                   required

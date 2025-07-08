@@ -37,7 +37,7 @@ const About = () => {
                 <h1 className="profile-name">Gokhan Percem</h1>
                 <div className="profile-title">Full Stack & Game Developer</div>
                 <p className="profile-about">
-                  Creative developer with a passion for game design and web technologies. 
+                  Creative developer that &lt;3's game design and web technologies. 
                 </p>
                 <div className="profile-actions">
                   <GlassButton to="/projects" variant="primary" className="profile-button">
@@ -91,7 +91,7 @@ const About = () => {
                     <span className="education-year">2024 - Present</span>
                   </div>
                   <h4 className="education-degree">Software Engineering</h4>
-                  <p className="education-description">Studied software development, algorithms, and modern web technologies. Developing practical skills through project-based learning.</p>
+                  <p className="education-description">Studied software development, algorithms, and modern web technologies. Developing skills through projects.</p>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const About = () => {
           {/* Item 10: Contact Me Link */}
           <Link to="/contact" className="item item-10 glass contact-link">
             <h2>Contact Me</h2>
-            <p>Want to work together? Feel free to reach out.</p>
+            <p>Want to work together?<br/>Feel free to reach out.</p>
             <div className="corner-link-circle">
               <HiArrowUpRight className="corner-link-icon" />
             </div>

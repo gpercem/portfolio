@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, lazy, Suspense } from 'react'
-import { HiExternalLink, HiCode, HiChevronLeft, HiChevronRight, HiEye, HiPhotograph, HiPlay } from 'react-icons/hi'
+import { HiExternalLink, HiCode, HiChevronLeft, HiChevronRight, HiPhotograph, HiOutlineDocument } from 'react-icons/hi'
 import { motion, AnimatePresence } from 'framer-motion'
 import GlassButton from '../components/GlassButton'
 import ProjectImageModal from '../components/ProjectImageModal'
@@ -45,7 +45,7 @@ const Projects = () => {
   
   const projects = [
     {
-      id: 1,
+      id: 4,
       title: "Personal Portfolio",
       description: "A modern, responsive, made-from-scratch portfolio site with a glassmorphism design.",
       thumbnail: "/images/projects/portfolio_mockup.jpg",
@@ -65,7 +65,7 @@ const Projects = () => {
       type: "apps"
     },
     {
-      id: 5,
+      id: 2,
       title: "Apeiron Rocketry Brand Design",
       description: "Visual identity, including logo, color palette, and typography, for a rocketry team.",
       thumbnail: "/images/projects/apeiron_logo_dark.jpg",
@@ -84,7 +84,7 @@ const Projects = () => {
       type: "designs"
     },
     {
-      id: 7,
+      id: 3,
       title: "Apeiron T-shirt & Hoodie Design",
       description: "A T-shirt and hoodie design for the Apeiron rocketry team, featuring the mascot 'BUKREK'.",
       thumbnail: "/images/projects/apeiron_tshirt.jpg",
@@ -104,6 +104,65 @@ const Projects = () => {
       liveIcon: HiPhotograph,
       type: "designs"
     },
+    {
+      id: 1,
+      title: "Teknofest 2nd Place Project",
+      description: "2nd place awarded project. An education material for chemistry class used to teach atoms and molecules.",
+      thumbnail: "/images/projects/teknofest_project_thumbnail.jpg",
+      images: [
+        "/images/projects/teknofest_0.jpg",
+        "/images/projects/teknofest_1.jpg",
+        "/images/projects/teknofest_2.jpg",
+        "/images/projects/teknofest_3.jpg",
+      ],
+      tags: ["arduino", "unity", "c#"],
+      liveUrl: "https://www.teknofest.org/tr/yarismalar/competition_report_detail/3590",
+      liveText: "Teknofest Page",
+      liveIcon: HiExternalLink,
+      codeUrl: "https://drive.google.com/file/d/1FRYPgXweHX6kAWjOBXmEKA9tXk1a-6l3/view?usp=sharing",
+      codeText: "Information",
+      codeIcon: HiOutlineDocument,
+      type: "apps"
+    },
+    {
+      id: 5,
+      title: "Peynir Faresi Game",
+      description: "1st place award winner game for Hacettepe University Game Jam. A 2D puzzle game made with Godot.",
+      thumbnail: "/images/projects/peynir_faresi_0.jpg",
+      images: [
+        "/images/projects/peynir_faresi_1.jpg",
+        "/images/projects/peynir_faresi_2.jpg",
+      ],
+      imageDescriptions: [
+        "First level of the game, you control a mouse to collect cheese while trying to come up with the best evolution pattern.",
+        
+      ],
+      tags: ["godot", "gamejam", "gscript"],
+      liveUrl: "https://eneskp3441.itch.io/peynir-faresi",
+      liveText: "Play Game",
+      liveIcon: HiExternalLink,
+      type: "games"
+    },
+    {
+      id: 6,
+      title: "Swarmageddon Game",
+      description: "1st place award winner game for Aydın University Game Jam. A 3D strategy and thriller game made with Unity.",
+      thumbnail: "/images/projects/swarmageddon_0.jpg",
+      images: [
+        "/images/projects/swarmageddon_1.jpg",
+        "/images/projects/swarmageddon_2.jpg",
+        "/images/projects/swarmageddon_3.jpg"
+      ],
+      imageDescriptions: [
+      ],
+      tags: ["unity", "gamejam", "c#"],
+      liveUrl: "https://gokomon.itch.io/swarmageddon",
+      liveText: "Play Game",
+      liveIcon: HiExternalLink,
+      type: "games"
+
+    }
+
   ]
   
   const filteredProjects = activeFilter === 'all' 
@@ -125,8 +184,7 @@ const Projects = () => {
   }
 
   const getProjectsPerPage = () => {
-    if (window.innerWidth <= 768) return 1
-    if (window.innerWidth <= 992) return 2
+    if (window.innerWidth <= 992) return 1
     return 3
   }
 

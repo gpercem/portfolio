@@ -94,7 +94,7 @@ const Contact = () => {
             <form 
               className="contact-form" 
               onSubmit={handleSubmit}
-              action="https://formsubmit.co/gokhanpercem@gmail.com"
+              action="https://formsubmit.co/d12ae397a3742217831e1ce1bee795eb"
               method="POST"
             >
               <div className="form-row">

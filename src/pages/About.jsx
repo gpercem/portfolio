@@ -44,7 +44,7 @@ const About = () => {
                     <HiEye />
                     <span>View Work</span>
                   </GlassButton>
-                  <GlassButton href="/files/cv-2026-02.pdf" download variant="secondary" className="profile-button">
+                  <GlassButton href="/files/gokhan-percem-cv-2026-02.pdf" download variant="secondary" className="profile-button">
                     <HiDocumentDownload />
                     <span>Download CV</span>
                   </GlassButton>

@@ -9,7 +9,7 @@ import Bulut from '@auticlabs/bulut'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Bulut
-      projectId='4ae21bf0-face-4cf8-b1a8-1043cefc46f3'
+      projectId='6739dc21-69ed-4527-9c02-20159691b997'
     />
     <BrowserRouter>
       <App />

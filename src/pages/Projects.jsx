@@ -160,10 +160,49 @@ const Projects = () => {
       liveText: "Play Game",
       liveIcon: HiExternalLink,
       type: "games"
-
-    }
-
-  ]
+      },
+      {
+        id: 7,
+        title: "Mannequin Studio",
+        description: "1st place winner at Wiro.ai Generative AI Hackathon. A Next.js application with a 3D interface where users can pose a mannequin to get their desired pose, then Nano Banana Pro turns it into a professional photoshoot.",
+        thumbnail: "/images/projects/portfolio_mockup.jpg",
+        images: [],
+        imageDescriptions: [],
+        tags: ["next.js", "3d", "ai", "wiro.ai"],
+        type: "apps"
+      },
+      {
+        id: 8,
+        title: "Erim Matematik Platform",
+        description: "Built a custom full stack web platform for a national online mathematics olympiad, capable of handling 10000+ users taking exams simultaneously while delivering user registration, competition workflows, and management for the Turkish Ministry of National Education (MEB) backed Erim Matematik Foundation.",
+        thumbnail: "/images/projects/erimmatematik.jpg",
+        images: ["/images/projects/erimmatematik.jpg"],
+        imageDescriptions: ["Homepage of the Erim Matematik platform, showcasing the platform's user interface."],
+        tags: ["react", "vite", "asp.net", "docker", "linux", "ci/cd"],
+        type: "apps"
+      },  
+      {
+        id: 9,
+        title: "Self-Published Mobile Applications",
+        description: "Designed, developed, and published 3 cross-platform mobile applications to Google Play and the Apple App Store, achieving 5000+ downloads worldwide. Implemented end-to-end app lifecycle including UI/UX, deployment, and store optimization.",
+        thumbnail: "/images/projects/portfolio_mockup.jpg",
+        images: [],
+        imageDescriptions: [],
+        tags: ["mobile", "cross-platform", "ui/ux", "app-store"],
+        type: "apps"
+      },
+      {
+        id: 10,
+        title: "Video AI Mobile App",
+        description: "Top 7 finalist at Fal.ai AI Hackathon. Developed a Flutter-based mobile application enabling AI-driven video generation; ranked among the top 7 projects by jury evaluation.",
+        thumbnail: "/images/projects/portfolio_mockup.jpg",
+        images: [],
+        imageDescriptions: [],
+        tags: ["flutter", "ai", "video-generation", "mobile-ui/ux"],
+        type: "apps"
+      }
+  
+    ]
   
   const filteredProjects = activeFilter === 'all' 
     ? projects 

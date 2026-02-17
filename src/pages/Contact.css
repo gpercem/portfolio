@@ -82,10 +82,9 @@
   border: 1px solid var(--border);
   color: var(--text-primary);
   padding: 10px 14px;
-  border-radius: 10px;
   font-size: 0.95rem;
   font-family: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -94,7 +93,6 @@
   outline: none;
   border-color: var(--text-accent);
   box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.15);
-  transform: translateY(-1px);
 }
 
 .form-textarea {
@@ -110,26 +108,19 @@
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border);
-  border-radius: 10px;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: 500;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 12px var(--shadow);
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   margin-top: 8px;
   position: relative;
   overflow: hidden;
 }
 
-.form-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px var(--shadow);
-}
-
 .form-button:active {
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 .form-button:disabled {
@@ -142,7 +133,6 @@
   color: #e74c3c;
   background-color: rgba(231, 76, 60, 0.1);
   border: 1px solid rgba(231, 76, 60, 0.3);
-  border-radius: 12px;
   padding: 12px;
   margin-top: 10px;
 }
@@ -184,7 +174,6 @@
   width: 60px;
   height: 60px;
   background-color: rgba(39, 174, 96, 0.2);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -16,14 +16,14 @@ img {
     radial-gradient(circle at 20% 80%, #3b83f64f 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, #8000203d 0%, transparent 50%),
     linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  --bg-secondary: rgba(255, 255, 255, 0.2);
-  --bg-card: rgba(255, 255, 255, 0.2);
+  --bg-secondary: rgba(255, 255, 255, 0.45);
+  --bg-card: rgba(255, 255, 255, 0.55);
   --text-primary: #212529;
   --text-secondary: #6c757d;
   --text-accent: #162969;
-  --border: rgba(255, 255, 255, 0.4);
+  --border: rgba(0, 0, 0, 0.12);
   --shadow: rgba(0, 0, 0, 0.1);
-  --hover-overlay: rgba(255,255,255,0.42); /* Changed to dark overlay for light mode */
+  --hover-overlay: rgba(255,255,255,0.42);
   --selection-bg: rgba(200, 200, 200, 0.4);
   --selection-text: currentColor;
 }
@@ -63,8 +63,7 @@ body {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px var(--shadow);
+  border: 1px solid var(--border);
   position: relative;
   z-index: 1;
 }
@@ -72,16 +71,29 @@ body {
 .glass::before {
   content: "";
   position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--border) 0%, transparent 100%);
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
+  top: -14px;
+  left: -16px;
+  width: 17px;
+  height: 15px;
+  background:
+    linear-gradient(to right, transparent calc(100% - 1px), var(--border) calc(100% - 1px)),
+    linear-gradient(to bottom, transparent calc(100% - 1px), var(--border) calc(100% - 1px));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 13px;
+  height: 13px;
+  background:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .container {
@@ -107,16 +119,11 @@ body {
 a,
 button {
   position: relative;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: transform 0.1s ease;
   z-index: 1;
-}
-
-a:hover,
-button:hover {
-  background-color: var(--hover-overlay);
 }
 
 a:active,
 button:active {
-  transform: scale(0.9);
+  transform: scale(0.98);
 }

@@ -24,25 +24,22 @@ export const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile, 
   return (
     <motion.div 
       className={`project-card clickable glass ${isMobile ? 'story-card' : ''}`}
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3 }}
-      whileHover={!isMobile ? { y: -5, boxShadow: "0 10px 30px var(--shadow)" } : {}}
+      transition={{ duration: 0.2 }}
       onClick={() => openModal && openModal(project)}
     >
       <div 
         className={`project-image-container ${!isLoaded ? 'image-loading' : ''}`}
       >
         {!isLoaded && !imageError && <div className="image-placeholder-loader"></div>}
-        <motion.img 
+        <img 
           ref={imageRef}
           src={project.thumbnail || project.images[0]} 
           alt={project.title} 
           className={`project-image ${isLoaded ? 'image-loaded' : ''}`}
           onLoad={handleImageLoad}
           onError={handleImageError}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
         />
         {project.images && project.images.length > 1 && (
           <div className="multiple-images-indicator">
@@ -82,7 +79,6 @@ export const AnimatedProjectCard = ({ project, onImageLoad, isLoaded, isMobile, 
                 hidden: { opacity: 0, scale: 0.8 },
                 visible: { opacity: 1, scale: 1 }
               }}
-              whileHover={{ scale: 1.1 }}
             >
               {tag}
             </motion.span>

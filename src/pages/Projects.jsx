@@ -6,6 +6,7 @@ import ProjectImageModal from '../components/ProjectImageModal'
 import { AnimatedProjectCard } from '../components/ProjectCards'
 import LoadingSpinner from '../components/LoadingSpinner'
 import './Projects.css'
+import { button } from 'framer-motion/client'
 
 // Lazy load Swiper components
 const SwiperComponents = lazy(() => import('../components/SwiperComponents'))
@@ -45,67 +46,50 @@ const Projects = () => {
   
   const projects = [
     {
-      id: 4,
-      title: "Personal Portfolio",
-      description: "A modern, responsive, made-from-scratch portfolio site with a glassmorphism design.",
-      thumbnail: "/images/projects/portfolio_mockup.jpg",
+      id: 1,
+      title: "Erim Matematik Platform",
+      description: "Built a custom full stack web platform for a national online mathematics olympiad, capable of handling 10000+ users taking exams simultaneously while delivering user registration, competition workflows, and management for the Turkish Ministry of National Education (MEB) backed Erim Matematik Foundation.",
+      thumbnail: "/images/projects/erimmatematik.jpg",
+      images: ["/images/projects/erimmatematik.jpg"],
+      imageDescriptions: ["Homepage of the Erim Matematik platform, showcasing the platform's user interface."],
+      tags: ["react", "vite", "asp.net", "docker", "linux", "ci/cd"],
+      type: "apps",
+      liveUrl: "https://erimmatematik.com",
+      liveText: "Visit Site",
+      liveIcon: HiExternalLink,
+    },
+    {
+      id: 2,
+      title: "Bulut.lu - Open Source ChatBot Platform",
+      description: "A modern, open source chatbot platform built with React, Preact and FastAPI.",
+      thumbnail: "/images/projects/bulut_banner.jpg",
       images: [
-        "/images/projects/portfolio.jpg"
+        "/images/projects/bulut_homepage.jpg"
       ],
       imageDescriptions: [
         "Full homepage view showcasing the glassmorphism design with an animated background and responsive layout."
       ],
       tags: ["react", "css", "framer-motion"],
-      liveUrl: "https://gokhanpercem.com",
+      liveUrl: "https://bulut.lu",
       liveText: "Visit Site",
       liveIcon: HiExternalLink,
-      codeUrl: "https://github.com/gpercem/portfolio",
+      codeUrl: "https://github.com/bulutai/bulut",
       codeText: "View Code",
       codeIcon: HiCode,
       type: "apps"
     },
     {
-      id: 2,
-      title: "Apeiron Rocketry Brand Design",
-      description: "Visual identity, including logo, color palette, and typography, for a rocketry team.",
-      thumbnail: "/images/projects/apeiron_logo_dark.jpg",
-      images: [
-        "/images/projects/apeiron_logo_dark.jpg",
-        "/images/projects/apeiron_logo_light.jpg",
-      ],
-      imageDescriptions: [
-        "Dark theme logo design featuring the Apeiron wordmark with a rocket and Turkish mythological dragon Bukrek-inspired typography and color scheme.",
-        "Light theme variation of the logo, maintaining brand consistency across different backgrounds."
-      ],
-      tags: ["branding", "illustrator", "design"],
-      liveUrl: "https://www.instagram.com/apeironrocketry/",
-      liveText: "View Brand",
-      liveIcon: HiPhotograph,
-      type: "designs"
-    },
-    {
       id: 3,
-      title: "Apeiron T-shirt & Hoodie Design",
-      description: "A T-shirt and hoodie design for the Apeiron rocketry team, featuring the mascot 'BUKREK'.",
-      thumbnail: "/images/projects/apeiron_tshirt.jpg",
-      images: [
-        "/images/projects/apeiron_tshirt.jpg",
-        "/images/projects/apeiron_tshirt_zoomed.jpg",
-        "/images/projects/apeiron_tshirt_zoomed_2.jpg"
-      ],
-      imageDescriptions: [
-        "Showcase of both the T-shirt and hoodie designs featuring the bold BUKREK mascot.",
-        "Close-up of the hoodie that highlights intricate design details of the BUKREK mascot.",
-        "Close-up of the T-shirt design emphasizing a modern, graphic take on the APEIRON logo."
-      ],
-      tags: ["fashion", "illustrator", "design"],
-      liveUrl: "https://www.instagram.com/stories/highlights/17978698895031935/",
-      liveText: "View Gallery",
-      liveIcon: HiPhotograph,
-      type: "designs"
+      title: "Mannequin Studio",
+      description: "1st place winner at Wiro.ai Generative AI Hackathon. A Next.js application with a 3D interface where users can pose a mannequin to get their desired pose, then Nano Banana Pro turns it into a professional photoshoot.",
+      thumbnail: "/images/projects/mannequin.jpg",
+      images: ["/images/projects/mannequin.jpg"],
+      imageDescriptions: [],
+      tags: ["next.js", "3d", "ai", "wiro.ai"],
+      type: "apps"
     },
     {
-      id: 1,
+      id: 4,
       title: "Teknofest 2nd Place Project",
       description: "2nd place awarded project. An education material for chemistry class used to teach atoms and molecules.",
       thumbnail: "/images/projects/teknofest_project_thumbnail.jpg",
@@ -117,7 +101,7 @@ const Projects = () => {
       ],
       tags: ["arduino", "unity", "c#"],
       liveUrl: "https://www.teknofest.org/tr/yarismalar/competition_report_detail/3590",
-      liveText: "Teknofest Page",
+      liveText: "Teknofest",
       liveIcon: HiExternalLink,
       codeUrl: "https://drive.google.com/file/d/1FRYPgXweHX6kAWjOBXmEKA9tXk1a-6l3/view?usp=sharing",
       codeText: "Information",
@@ -160,47 +144,67 @@ const Projects = () => {
       liveText: "Play Game",
       liveIcon: HiExternalLink,
       type: "games"
-      },
-      {
-        id: 7,
-        title: "Mannequin Studio",
-        description: "1st place winner at Wiro.ai Generative AI Hackathon. A Next.js application with a 3D interface where users can pose a mannequin to get their desired pose, then Nano Banana Pro turns it into a professional photoshoot.",
-        thumbnail: "/images/projects/portfolio_mockup.jpg",
-        images: [],
-        imageDescriptions: [],
-        tags: ["next.js", "3d", "ai", "wiro.ai"],
-        type: "apps"
-      },
-      {
-        id: 8,
-        title: "Erim Matematik Platform",
-        description: "Built a custom full stack web platform for a national online mathematics olympiad, capable of handling 10000+ users taking exams simultaneously while delivering user registration, competition workflows, and management for the Turkish Ministry of National Education (MEB) backed Erim Matematik Foundation.",
-        thumbnail: "/images/projects/erimmatematik.jpg",
-        images: ["/images/projects/erimmatematik.jpg"],
-        imageDescriptions: ["Homepage of the Erim Matematik platform, showcasing the platform's user interface."],
-        tags: ["react", "vite", "asp.net", "docker", "linux", "ci/cd"],
-        type: "apps"
-      },  
-      {
-        id: 9,
-        title: "Self-Published Mobile Applications",
-        description: "Designed, developed, and published 3 cross-platform mobile applications to Google Play and the Apple App Store, achieving 5000+ downloads worldwide. Implemented end-to-end app lifecycle including UI/UX, deployment, and store optimization.",
-        thumbnail: "/images/projects/portfolio_mockup.jpg",
-        images: [],
-        imageDescriptions: [],
-        tags: ["mobile", "cross-platform", "ui/ux", "app-store"],
-        type: "apps"
-      },
-      {
-        id: 10,
-        title: "Video AI Mobile App",
-        description: "Top 7 finalist at Fal.ai AI Hackathon. Developed a Flutter-based mobile application enabling AI-driven video generation; ranked among the top 7 projects by jury evaluation.",
-        thumbnail: "/images/projects/portfolio_mockup.jpg",
-        images: [],
-        imageDescriptions: [],
-        tags: ["flutter", "ai", "video-generation", "mobile-ui/ux"],
-        type: "apps"
-      }
+    },
+    {
+      id: 7,
+      title: "Self-Published Mobile Applications",
+      description: "Designed, developed, and published 3 cross-platform mobile applications to Google Play and the Apple App Store, achieving 5000+ downloads worldwide. Implemented end-to-end app lifecycle including UI/UX, deployment, and store optimization.",
+      thumbnail: "/images/projects/curato.jpg",
+      images: ["/images/projects/app_0.png", "/images/projects/app_1.png"],
+      imageDescriptions: ["Curato app homepage showing the app's user interface.", "Verticalizer app homepage showing the app's user interface."],
+      tags: ["mobile", "cross-platform", "ui/ux", "app-store"],
+      type: "apps"
+    },
+    {
+      id: 8,
+      title: "Video AI Mobile App",
+      description: "Top 7 finalist at Fal.ai AI Hackathon. Developed a Flutter-based mobile application enabling AI-driven video generation; ranked among the top 7 projects by jury evaluation.",
+      thumbnail: "/images/projects/portfolio_mockup.jpg",
+      images: [],
+      imageDescriptions: [],
+      tags: ["flutter", "ai", "video-generation", "mobile-ui/ux"],
+      type: "apps"
+    },
+    {
+      id: 9,
+      title: "Apeiron Rocketry Brand Design",
+      description: "Visual identity, including logo, color palette, and typography, for a rocketry team.",
+      thumbnail: "/images/projects/apeiron_logo_dark.jpg",
+      images: [
+        "/images/projects/apeiron_logo_dark.jpg",
+        "/images/projects/apeiron_logo_light.jpg",
+      ],
+      imageDescriptions: [
+        "Dark theme logo design featuring the Apeiron wordmark with a rocket and Turkish mythological dragon Bukrek-inspired typography and color scheme.",
+        "Light theme variation of the logo, maintaining brand consistency across different backgrounds."
+      ],
+      tags: ["branding", "illustrator", "design"],
+      liveUrl: "https://www.instagram.com/apeironrocketry/",
+      liveText: "View Brand",
+      liveIcon: HiPhotograph,
+      type: "designs"
+    },
+    {
+      id: 10,
+      title: "Apeiron T-shirt & Hoodie Design",
+      description: "A T-shirt and hoodie design for the Apeiron rocketry team, featuring the mascot 'BUKREK'.",
+      thumbnail: "/images/projects/apeiron_tshirt.jpg",
+      images: [
+        "/images/projects/apeiron_tshirt.jpg",
+        "/images/projects/apeiron_tshirt_zoomed.jpg",
+        "/images/projects/apeiron_tshirt_zoomed_2.jpg"
+      ],
+      imageDescriptions: [
+        "Showcase of both the T-shirt and hoodie designs featuring the bold BUKREK mascot.",
+        "Close-up of the hoodie that highlights intricate design details of the BUKREK mascot.",
+        "Close-up of the T-shirt design emphasizing a modern, graphic take on the APEIRON logo."
+      ],
+      tags: ["fashion", "illustrator", "design"],
+      liveUrl: "https://www.instagram.com/stories/highlights/17978698895031935/",
+      liveText: "View Gallery",
+      liveIcon: HiPhotograph,
+      type: "designs"
+    }
   
     ]
   
@@ -258,17 +262,17 @@ const Projects = () => {
       opacity: 1,
       transition: { 
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   }
   
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { type: "spring", stiffness: 100 }
+      transition: { duration: 0.2 }
     }
   }
 
@@ -276,14 +280,14 @@ const Projects = () => {
     <div className="projects-page page">
       <motion.div 
         className={`projects-content glass ${isMobile ? 'mobile-view' : ''}`}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
         >
           My Projects
         </motion.h1>
@@ -358,7 +362,7 @@ const Projects = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    exit={{ opacity: 0, y: 10 }}
+                    exit={{ opacity: 0, y: 5 }}
                   >
                     {getCurrentPageProjects().map((project) => (
                       <motion.div 
@@ -383,48 +387,40 @@ const Projects = () => {
                 {totalPages > 1 && (
                   <motion.div 
                     className="pagination-controls"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 0.3 }}
                   >
-                    <motion.button 
+                    <button 
                       className={`pagination-button prev ${currentPage === 1 ? 'disabled' : ''}`}
                       onClick={goToPrevPage}
                       disabled={currentPage === 1}
                       aria-label="Previous page"
-                      whileHover={currentPage !== 1 ? { scale: 1.1 } : {}}
-                      whileTap={currentPage !== 1 ? { scale: 0.9 } : {}}
                     >
                       <HiChevronLeft />
-                    </motion.button>
+                    </button>
                     
                     <div className="pagination-numbers">
                       {Array.from({ length: totalPages }).map((_, index) => (
-                        <motion.button
+                        <button
                           key={index}
                           className={`pagination-number ${currentPage === index + 1 ? 'active' : ''}`}
                           onClick={() => goToPage(index + 1)}
                           aria-label={`Page ${index + 1}`}
-                          whileHover={currentPage !== index + 1 ? { scale: 1.1 } : {}}
-                          whileTap={{ scale: 0.9 }}
-                          animate={currentPage === index + 1 ? { scale: 1.1 } : { scale: 1 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 15 }}
                         >
                           {index + 1}
-                        </motion.button>
+                        </button>
                       ))}
                     </div>
                     
-                    <motion.button 
+                    <button 
                       className={`pagination-button next ${currentPage === totalPages ? 'disabled' : ''}`}
                       onClick={goToNextPage}
                       disabled={currentPage === totalPages}
                       aria-label="Next page"
-                      whileHover={currentPage !== totalPages ? { scale: 1.1 } : {}}
-                      whileTap={currentPage !== totalPages ? { scale: 0.9 } : {}}
                     >
                       <HiChevronRight />
-                    </motion.button>
+                    </button>
                   </motion.div>
                 )}
               </>

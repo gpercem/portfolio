@@ -7,15 +7,14 @@
   padding: 12px 12px;
   width: calc(100% - 40px);
   max-width: 800px;
-  border-radius: 128px !important;
 }
 
 .navigation.glass {
-  border-radius: 128px !important;
+  /* No border-radius */
 }
 
 .navigation.glass::before {
-  border-radius: 128px !important;
+  /* No border-radius */
 }
 
 .nav-container {
@@ -36,8 +35,7 @@
 .nav-bubble {
   position: absolute;
   background: var(--bg-secondary);
-  border-radius: 128px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
   height: 40px;
 }
@@ -50,8 +48,7 @@
   color: var(--text-secondary);
   text-decoration: none;
   padding: 8px 16px;
-  border-radius: 128px;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
   white-space: nowrap;
   position: relative;
   z-index: 1;
@@ -78,19 +75,14 @@
 .theme-toggle {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 128px;
   padding: 8px 12px;
   color: var(--text-primary);
   font-size: 18px;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
   white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.theme-toggle:hover {
-  background: var(--bg-card);
 }
 
 @media (max-width: 1024px) {
@@ -128,7 +120,6 @@
 
   .nav-bubble {
     height: 52px;
-    border-radius: 50%;
   }
 
   .nav-text {
@@ -143,7 +134,6 @@
     padding: 0;
     width: 52px;
     height: 52px;
-    border-radius: 50%;
     justify-content: center;
   }
 
@@ -166,14 +156,12 @@
 
   .nav-bubble {
     height: 48px;
-    border-radius: 50%;
   }
 
   .nav-link {
     padding: 0;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
     font-size: 13px;
   }
 

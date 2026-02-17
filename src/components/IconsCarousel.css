@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.1s ease;
   padding: 10px;
 }
 
@@ -61,11 +61,6 @@
   font-size: 0.9rem;
   color: var(--text-primary);
   text-align: center;
-}
-
-.carousel-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--shadow);
 }
 
 @media (max-width: 768px) {

@@ -63,21 +63,19 @@ const ProjectImageModal = ({ project, onClose }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ 
-          duration: 0.2,
+          duration: 0.15,
           ease: "easeOut"
         }}
         onClick={handleBackdropClick}
       >
         <motion.div 
           className="project-modal glass"
-          initial={{ scale: 0.95, opacity: 0 }}
+          initial={{ scale: 0.98, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.95, opacity: 0 }}
+          exit={{ scale: 0.98, opacity: 0 }}
           transition={{ 
-            type: "spring", 
-            damping: 25, 
-            stiffness: 400,
-            duration: 0.2
+            duration: 0.15,
+            ease: "easeOut"
           }}
         >
           <button className="modal-close-btn" onClick={handleClose}>
@@ -113,7 +111,7 @@ const ProjectImageModal = ({ project, onClose }) => {
               centeredSlides={true}
               loop={false}
               allowTouchMove={true}
-              speed={300}
+              speed={200}
             >
               {project.images.map((image, index) => (
                 <SwiperSlide key={index} className="modal-slide">
